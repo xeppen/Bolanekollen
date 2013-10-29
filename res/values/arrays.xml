@@ -20,7 +20,7 @@
 	</string-array>
 	
     <string-array name="householdCars">
-        <item>0 bilar</item>
+        <item>0 bil</item>
 		<item>1 bilar</item>
 		<item>2 bilar</item>
 		<item>3+ bilar</item>

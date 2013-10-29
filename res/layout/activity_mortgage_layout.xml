@@ -154,15 +154,23 @@
         </EditText>
     </LinearLayout>
     
+    <TextView
+        android:id="@+id/costNewLiving"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/income"
+        android:textSize="18sp" >
+    </TextView>
+    
     <LinearLayout
-        android:id="@+id/costRow"
+        android:id="@+id/costOperatingCostRow"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
         android:orientation="horizontal"
         android:padding="@dimen/tighter_padding" >
 
         <TextView
-            android:id="@+id/costNewLiving"
+            android:id="@+id/costNewLivingOperatingCost"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="4"
@@ -171,7 +179,33 @@
         </TextView>
 
         <EditText
-            android:id="@+id/incomeOtherEditText"
+            android:id="@+id/costNewLivingOperatingCostEditText"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="3"
+            android:hint="@string/zeroPrompt"
+            android:inputType="text|number" >
+        </EditText>
+    </LinearLayout>
+    
+    <LinearLayout
+        android:id="@+id/costNewLivingMonthlyFeeRow"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:orientation="horizontal"
+        android:padding="@dimen/tighter_padding" >
+
+        <TextView
+            android:id="@+id/costNewLivingMonthlyFee"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="4"
+            android:text="@string/costNewLiving"
+            android:textSize="@dimen/textSize" >
+        </TextView>
+
+        <EditText
+            android:id="@+id/costNewLivingMonthlyFeeEditText"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="3"

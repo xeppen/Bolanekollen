@@ -36,13 +36,20 @@ public final class R {
     }
     public static final class id {
         public static final int ScrollView01=0x7f090000;
-        public static final int action_settings=0x7f090031;
+        public static final int action_settings=0x7f090038;
         public static final int amortSpinner=0x7f09000f;
         public static final int amountRow=0x7f090001;
         public static final int content_frame=0x7f09001c;
+        public static final int costNewLiving=0x7f09002f;
+        public static final int costNewLivingMonthlyFee=0x7f090034;
+        public static final int costNewLivingMonthlyFeeEditText=0x7f090035;
+        public static final int costNewLivingMonthlyFeeRow=0x7f090033;
+        public static final int costNewLivingOperatingCost=0x7f090031;
+        public static final int costNewLivingOperatingCostEditText=0x7f090032;
+        public static final int costOperatingCostRow=0x7f090030;
         public static final int drawer_layout=0x7f09001b;
         public static final int drawer_list=0x7f09001d;
-        public static final int fragmentTextView=0x7f09002f;
+        public static final int fragmentTextView=0x7f090036;
         public static final int household=0x7f09001e;
         public static final int householdAdultRow=0x7f09001f;
         public static final int householdAdults=0x7f090020;
@@ -84,7 +91,7 @@ public final class R {
         public static final int repayTimeTextView=0x7f09000a;
         public static final int resultPaybackRow=0x7f090012;
         public static final int resultRow=0x7f090010;
-        public static final int webView=0x7f090030;
+        public static final int webView=0x7f090037;
     }
     public static final class layout {
         public static final int activity_interest_layout=0x7f030000;
