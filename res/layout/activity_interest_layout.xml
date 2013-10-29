@@ -1,0 +1,260 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/ScrollView01"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:id="@+id/amountRow"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:padding="@dimen/general_padding"
+        android:orientation="horizontal" >
+
+        <TextView
+            android:id="@+id/loanTextView"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="3"
+            android:text="@string/loanTextView"
+            android:textSize="@dimen/textSize" >
+        </TextView>
+
+        <EditText
+            android:id="@+id/loanEditText"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="7"
+            android:hint="@string/loanHintEditText"
+            android:inputType="text|number" >
+        </EditText>
+        
+        <TextView
+            android:id="@+id/loanCurrencyTextView"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="2"
+            android:text="@string/loanCurrencyTextView"
+            android:textSize="@dimen/textSize" >
+        </TextView>
+    </LinearLayout>
+
+    <!-- 
+    <LinearLayout
+        android:id="@+id/amortRow"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:orientation="horizontal" >
+
+        <TextView
+            android:id="@+id/amortTextView"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/amortTimeTextView" >
+        </TextView>
+
+        <EditText
+            android:id="@+id/amortEditText"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="3"
+            android:hint="@string/amortHintEditText"
+            android:inputType="text|number" >
+        </EditText>
+    </LinearLayout> -->
+
+    <LinearLayout
+        android:id="@+id/interestRow"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:padding="@dimen/general_padding"
+        android:orientation="horizontal" >
+		
+        <TextView
+            android:id="@+id/interestTextView"
+            android:layout_width="0dp"
+            android:layout_height="fill_parent"
+            android:layout_weight="3"
+            android:textSize="@dimen/textSize" 
+            android:text="@string/interestTextView" >
+        </TextView>
+        
+        <EditText
+            android:id="@+id/interestEditText"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="7"
+            android:hint="@string/interestEditText"
+            android:inputType="text|number" >
+        </EditText>
+        
+        <TextView
+            android:id="@+id/interestUnitTextView"
+            android:layout_width="0dp"
+            android:layout_height="fill_parent"
+            android:layout_weight="2"
+            android:textSize="@dimen/textSize" 
+            android:text="@string/interestUnitTextView" >
+        </TextView>
+    </LinearLayout>
+    
+    <LinearLayout
+        android:id="@+id/repayRow"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:padding="@dimen/general_padding"
+        android:orientation="horizontal" >
+		
+        <TextView
+            android:id="@+id/repayTimeTextView"
+            android:layout_width="0dp"
+            android:layout_height="fill_parent"
+            android:layout_weight="3"
+            android:textSize="@dimen/textSize" 
+            android:text="@string/repayTimeTextView" >
+        </TextView>
+        
+        <SeekBar
+            android:id="@+id/repayTimeSeekBar"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="7"
+            android:max="30"
+            android:progress="1" />
+
+        <TextView
+            android:id="@+id/repayTextView"
+            android:layout_width="0dp"
+            android:layout_height="fill_parent"
+            android:layout_weight="2"
+            android:textSize="@dimen/textSize"
+            android:text="@string/repayTextView" >
+        </TextView>
+    </LinearLayout>
+    
+    <LinearLayout
+        android:id="@+id/repayPlanRow"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:padding="@dimen/general_padding"
+        android:orientation="horizontal" >
+
+        <TextView
+            android:id="@+id/repayPlanTextView"
+            android:layout_width="0dp"
+            android:layout_height="fill_parent"
+            android:text="@string/repayPlanTextView"
+            android:textSize="@dimen/textSize" 
+            android:layout_weight="3" >
+        </TextView>
+        
+        <Spinner
+            android:id="@+id/amortSpinner"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="7"
+            android:padding="5dp"
+            android:entries="@array/amortTypes"
+            android:prompt="@string/amortType1" >
+        </Spinner>
+    </LinearLayout>
+    
+    <View
+    android:layout_width="fill_parent"
+    android:layout_height="1dp"
+    android:background="@android:color/darker_gray"/>
+	
+    <LinearLayout
+        android:id="@+id/resultRow"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:orientation="horizontal" >
+
+        <TextView
+            android:id="@+id/privateLoanResult"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:text="@string/privateLoanResult"
+            android:textSize="@dimen/textSize">
+        </TextView>
+    </LinearLayout>
+    
+    <LinearLayout
+        android:id="@+id/resultPaybackRow"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:orientation="horizontal" >
+
+        <TextView
+            android:id="@+id/privateLoanPayback"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:text="@string/privateLoanPayback"
+            android:layout_weight="4"
+            android:textSize="@dimen/textSize">
+        </TextView>
+        
+        <TextView
+            android:id="@+id/privateLoanPaybackTextView"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_weight="6"
+            android:text="@string/privateLoanPaybackTextView"
+            android:textSize="@dimen/textSize">
+        </TextView>
+    </LinearLayout>
+    
+    <LinearLayout
+        android:id="@+id/privateLoanTotalInterestCostRow"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:orientation="horizontal" >
+
+        <TextView
+            android:id="@+id/privateLoanTotalInterestCost"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:text="@string/privateLoanTotalInterestCost"
+            android:layout_weight="4"
+            android:textSize="@dimen/textSize">
+        </TextView>
+        
+        <TextView
+            android:id="@+id/privateLoanTotalInterestCostEditTextView"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_weight="6"
+            android:text="@string/privateLoanTotalInterestCostEditTextView"
+            android:textSize="@dimen/textSize">
+        </TextView>
+    </LinearLayout>
+    
+    <LinearLayout
+        android:id="@+id/privateLoanEffectiveInterestRow"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:orientation="horizontal" >
+
+        <TextView
+            android:id="@+id/privateLoanEffectiveInterest"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:text="@string/privateLoanEffectiveInterest"
+            android:layout_weight="4"
+            android:textSize="@dimen/textSize">
+        </TextView>
+        
+        <TextView
+            android:id="@+id/privateLoanEffectiveInterestEditTextView"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_weight="6"
+            android:text="@string/privateLoanEffectiveInterestEditTextView"
+            android:textSize="@dimen/textSize">
+        </TextView>
+    </LinearLayout>
+    
+    
+</LinearLayout>

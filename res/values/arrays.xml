@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="amortTypes">
+		<item>@string/amortType1</item>
+		<item>@string/amortType2</item>
+	</string-array>
+	
+    <string-array name="householdAdults">
+		<item>1 vuxna</item>
+		<item>2 vuxna</item>
+	</string-array>
+	
+    <string-array name="householdChildren">
+        <item>0 barn</item>
+		<item>1 barn</item>
+		<item>2 barn</item>
+		<item>3 barn</item>
+		<item>4 barn</item>
+		<item>5+ barn</item>
+	</string-array>
+	
+    <string-array name="householdCars">
+        <item>0 bilar</item>
+		<item>1 bilar</item>
+		<item>2 bilar</item>
+		<item>3+ bilar</item>
+	</string-array>
+</resources>

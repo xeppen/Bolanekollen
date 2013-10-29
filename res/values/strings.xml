@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Lånekollen</string>
+    <string name="action_settings">Settings</string>
+
+    <string-array name="menus">
+        <item>Hem</item>
+        <item>Hur stort bolån får ni?</item>
+        <item>Vad kostar bostaden er?</item>
+        <item>Aktuella boräntor</item>
+        <item>Kostnad för privatlån</item>
+        <item>Kostnad för SMS lån</item>
+        <item></item>
+    </string-array>
+
+    <string name="drawer_open">Open Drawer</string>
+    <string name="drawer_close">Close Drawer</string>
+    <string name="title_activity_test_fragment">TestFragment</string>
+    
+    <!-- Interest strings -->
+    <string name="loanTextView">Belopp:</string>
+    <string name="loanCurrencyTextView">kr</string>
+    <string name="loanHintEditText">Ange lånebelopp i kr</string>
+    <string name="amortTimeTextView">Amortering:</string>
+    <string name="amortYearTextView">0 år</string>
+    <string name="amortAmountTextView">Amortering</string>
+    <string name="amortCurrencyTextView">kr/mån</string>
+    <string name="repayTimeTextView">Antal år: </string>
+    <string name="repayTextView">1 år</string>
+    <string name="repayPlanTextView">Ränteplan:</string>
+    <string name="interestTextView">Ränta: </string>
+    <string name="interestEditText">0.1</string>
+    <string name="interestUnitTextView">%</string>
+    <string name="amortHintEditText">Ange amortering kr/mån</string>
+    <string name="calculateButtonText">Beräkna</string>
+    <string name="amortType1">Rak amortering</string>
+    <string name="amortType2">Annuitet</string>
+    
+    <string name="privateLoanResult">Resultat</string>
+    <string name="privateLoanPayback">Amortering:</string>
+    <string name="privateLoanTotalInterestCost">Total räntekostnad:</string>
+    <string name="privateLoanEffectiveInterest">Effektiv ränta:</string>
+    <string name="privateLoanTotalMonthlyCost">Total månadskostnad:</string>
+    <string name="privateLoanPaybackTextView">0 kr</string>
+    <string name="privateLoanEffectiveInterestEditTextView">0 %</string>
+    <string name="privateLoanTotalInterestCostEditTextView">0 kr</string>
+    
+    <!-- houseLoan -->
+    <string name="household"><u>Hushållet</u></string>
+    <string name="householdAdults">Antal vuxna</string>
+    <string name="householdChildren">Antal barn</string>
+    <string name="householdCars">Antal bilar</string>
+    <string name="income"><u>Inkomster</u></string>
+    <string name="incomeSalary">Nettolön, kr/mån</string>
+    <string name="incomeOther">Annan inkomst, kr/mån</string>
+    <string name="incomeSalaryHintEditText">0</string>
+    <string name="otherLoans">Övriga lån</string>
+    <string name="otherLoansCost">Kostnad, kr/mån</string>
+    <string name="costNewLiving">Kostnad nytt boende</string>
+    <string name="costNewLivingOperatingCost">Driftkostnad, kr/mån</string>
+    <string name="costNewLivingMonthlyFee">Månadskostnad, kr/mån</string>
+    <string name="zeroPrompt">0</string>
+    
+</resources>
