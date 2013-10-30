@@ -1,217 +1,284 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/ScrollView01"
     android:layout_width="fill_parent"
-    android:layout_height="wrap_content"
-    android:orientation="vertical" >
+    android:layout_height="wrap_content" >
 
-    <TextView
-        android:id="@+id/household"
+    <LinearLayout
+        android:id="@+id/View01"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:text="@string/household"
-        android:textSize="18sp" >
-    </TextView>
-
-    <LinearLayout
-        android:id="@+id/householdAdultRow"
-        android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
-        android:orientation="horizontal"
-        android:padding="@dimen/tighter_padding" >
+        android:orientation="vertical" >
 
         <TextView
-            android:id="@+id/householdAdults"
-            android:layout_width="0dp"
+            android:id="@+id/household"
+            android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="4"
-            android:text="@string/householdAdults"
-            android:textSize="@dimen/textSize" >
+            android:text="@string/household"
+            android:textSize="18sp" >
         </TextView>
 
-        <Spinner
-            android:id="@+id/householdAdultsSpinner"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="2"
-            android:entries="@array/householdAdults"
-            android:padding="@dimen/tighter_padding"
-            android:prompt="@string/zeroPrompt" >
-        </Spinner>
-    </LinearLayout>
+        <LinearLayout
+            android:id="@+id/householdAdultRow"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:orientation="horizontal"
+            android:padding="@dimen/tighter_padding" >
 
-    <LinearLayout
-        android:id="@+id/householdChildRow"
-        android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
-        android:orientation="horizontal"
-        android:padding="@dimen/tighter_padding" >
+            <TextView
+                android:id="@+id/householdAdults"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="4"
+                android:text="@string/householdAdults"
+                android:textSize="@dimen/textSize" >
+            </TextView>
+
+            <Spinner
+                android:id="@+id/householdAdultsSpinner"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:entries="@array/householdAdults"
+                android:padding="@dimen/tighter_padding"
+                android:prompt="@string/zeroPrompt" >
+            </Spinner>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/householdChildRow"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:orientation="horizontal"
+            android:padding="@dimen/tighter_padding" >
+
+            <TextView
+                android:id="@+id/householdChildren"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="4"
+                android:text="@string/householdChildren"
+                android:textSize="@dimen/textSize" >
+            </TextView>
+
+            <Spinner
+                android:id="@+id/householdChildrenSpinner"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:entries="@array/householdChildren"
+                android:padding="@dimen/tighter_padding"
+                android:prompt="@string/zeroPrompt" >
+            </Spinner>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/householdCarsRow"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:orientation="horizontal"
+            android:padding="@dimen/tighter_padding" >
+
+            <TextView
+                android:id="@+id/householdCars"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="4"
+                android:text="@string/householdCars"
+                android:textSize="@dimen/textSize" >
+            </TextView>
+
+            <Spinner
+                android:id="@+id/householdCarSpinner"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:entries="@array/householdCars"
+                android:padding="@dimen/tighter_padding"
+                android:prompt="@string/zeroPrompt" >
+            </Spinner>
+        </LinearLayout>
 
         <TextView
-            android:id="@+id/householdChildren"
-            android:layout_width="0dp"
+            android:id="@+id/income"
+            android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="4"
-            android:text="@string/householdChildren"
-            android:textSize="@dimen/textSize" >
+            android:text="@string/income"
+            android:textSize="18sp" >
         </TextView>
 
-        <Spinner
-            android:id="@+id/householdChildrenSpinner"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="2"
-            android:entries="@array/householdChildren"
-            android:padding="@dimen/tighter_padding"
-            android:prompt="@string/zeroPrompt" >
-        </Spinner>
-    </LinearLayout>
+        <LinearLayout
+            android:id="@+id/incomeRow"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:orientation="horizontal"
+            android:padding="@dimen/tighter_padding" >
 
-    <LinearLayout
-        android:id="@+id/householdCarsRow"
-        android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
-        android:orientation="horizontal"
-        android:padding="@dimen/tighter_padding" >
+            <TextView
+                android:id="@+id/incomeSalaryTextView"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="4"
+                android:text="@string/incomeSalary"
+                android:textSize="@dimen/textSize" >
+            </TextView>
 
-        <TextView
-            android:id="@+id/householdCars"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="4"
-            android:text="@string/householdCars"
-            android:textSize="@dimen/textSize" >
-        </TextView>
+            <EditText
+                android:id="@+id/incomeSalaryEditText"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="3"
+                android:hint="@string/incomeSalaryHintEditText"
+                android:inputType="text|number" >
+            </EditText>
+        </LinearLayout>
 
-        <Spinner
-            android:id="@+id/householdCarSpinner"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="2"
-            android:entries="@array/householdCars"
-            android:padding="@dimen/tighter_padding"
-            android:prompt="@string/zeroPrompt" >
-        </Spinner>
-    </LinearLayout>
+        <LinearLayout
+            android:id="@+id/incomeOtherRow"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:orientation="horizontal"
+            android:padding="@dimen/tighter_padding" >
 
-    <TextView
-        android:id="@+id/income"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/income"
-        android:textSize="18sp" >
-    </TextView>
+            <TextView
+                android:id="@+id/incomeOtherTextView"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="4"
+                android:text="@string/incomeOther"
+                android:textSize="@dimen/textSize" >
+            </TextView>
 
-    <LinearLayout
-        android:id="@+id/incomeRow"
-        android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
-        android:orientation="horizontal"
-        android:padding="@dimen/tighter_padding" >
-
-        <TextView
-            android:id="@+id/incomeSalaryTextView"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="4"
-            android:text="@string/incomeSalary"
-            android:textSize="@dimen/textSize" >
-        </TextView>
-
-        <EditText
-            android:id="@+id/incomeSalaryEditText"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="3"
-            android:hint="@string/incomeSalaryHintEditText"
-            android:inputType="text|number" >
-        </EditText>
-    </LinearLayout>
-    
-    <LinearLayout
-        android:id="@+id/incomeOtherRow"
-        android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
-        android:orientation="horizontal"
-        android:padding="@dimen/tighter_padding" >
+            <EditText
+                android:id="@+id/incomeOtherEditText"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="3"
+                android:hint="@string/zeroPrompt"
+                android:inputType="text|number" >
+            </EditText>
+        </LinearLayout>
 
         <TextView
-            android:id="@+id/incomeOtherTextView"
-            android:layout_width="0dp"
+            android:id="@+id/costNewLiving"
+            android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="4"
-            android:text="@string/incomeOther"
-            android:textSize="@dimen/textSize" >
-        </TextView>
-
-        <EditText
-            android:id="@+id/incomeOtherEditText"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="3"
-            android:hint="@string/zeroPrompt"
-            android:inputType="text|number" >
-        </EditText>
-    </LinearLayout>
-    
-    <TextView
-        android:id="@+id/costNewLiving"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/income"
-        android:textSize="18sp" >
-    </TextView>
-    
-    <LinearLayout
-        android:id="@+id/costOperatingCostRow"
-        android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
-        android:orientation="horizontal"
-        android:padding="@dimen/tighter_padding" >
-
-        <TextView
-            android:id="@+id/costNewLivingOperatingCost"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="4"
             android:text="@string/costNewLiving"
-            android:textSize="@dimen/textSize" >
+            android:textSize="18sp" >
         </TextView>
 
-        <EditText
-            android:id="@+id/costNewLivingOperatingCostEditText"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="3"
-            android:hint="@string/zeroPrompt"
-            android:inputType="text|number" >
-        </EditText>
-    </LinearLayout>
-    
-    <LinearLayout
-        android:id="@+id/costNewLivingMonthlyFeeRow"
-        android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
-        android:orientation="horizontal"
-        android:padding="@dimen/tighter_padding" >
+        <LinearLayout
+            android:id="@+id/costOperatingCostRow"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:orientation="horizontal"
+            android:padding="@dimen/tighter_padding" >
+
+            <TextView
+                android:id="@+id/costNewLivingOperatingCost"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="4"
+                android:text="@string/costNewLivingOperatingCost"
+                android:textSize="@dimen/textSize" >
+            </TextView>
+
+            <EditText
+                android:id="@+id/costNewLivingOperatingCostEditText"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="3"
+                android:hint="@string/zeroPrompt"
+                android:inputType="text|number" >
+            </EditText>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/costNewLivingMonthlyFeeRow"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:orientation="horizontal"
+            android:padding="@dimen/tighter_padding" >
+
+            <TextView
+                android:id="@+id/costNewLivingMonthlyFee"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="4"
+                android:text="@string/costNewLivingMonthlyFee"
+                android:textSize="@dimen/textSize" >
+            </TextView>
+
+            <EditText
+                android:id="@+id/costNewLivingMonthlyFeeEditText"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="3"
+                android:hint="@string/zeroPrompt"
+                android:inputType="text|number" >
+            </EditText>
+        </LinearLayout>
 
         <TextView
-            android:id="@+id/costNewLivingMonthlyFee"
-            android:layout_width="0dp"
+            android:id="@+id/cashPayment"
+            android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="4"
-            android:text="@string/costNewLiving"
-            android:textSize="@dimen/textSize" >
+            android:text="@string/cashPayment"
+            android:textSize="18sp" >
         </TextView>
 
-        <EditText
-            android:id="@+id/costNewLivingMonthlyFeeEditText"
-            android:layout_width="0dp"
+        <LinearLayout
+            android:id="@+id/gotCashPaymentRow"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:orientation="horizontal"
+            android:padding="@dimen/tighter_padding" >
+
+            <TextView
+                android:id="@+id/gotCashPaymentTextView"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="4"
+                android:text="@string/costNewLivingOperatingCost"
+                android:textSize="@dimen/textSize" >
+            </TextView>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/cashPaymentUnitRow"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:orientation="horizontal"
+            android:padding="@dimen/tighter_padding" >
+
+            <TextView
+                android:id="@+id/cashPaymentUnit"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="4"
+                android:text="@string/cashPaymentUnit"
+                android:textSize="@dimen/textSize" >
+            </TextView>
+
+            <EditText
+                android:id="@+id/cashPaymentUnitEditText"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="3"
+                android:enabled="false"
+                android:hint="@string/zeroPrompt"
+                android:inputType="text|number" >
+            </EditText>
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/resultButton"
+            android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="3"
-            android:hint="@string/zeroPrompt"
-            android:inputType="text|number" >
-        </EditText>
+            android:onClick="getResult"
+            android:padding="@dimen/general_padding"
+            android:text="@string/submit_button" >
+        </Button>
     </LinearLayout>
 
-</LinearLayout>
+</ScrollView>

@@ -36,37 +36,44 @@ public final class R {
     }
     public static final class id {
         public static final int ScrollView01=0x7f090000;
-        public static final int action_settings=0x7f090038;
+        public static final int View01=0x7f09001e;
+        public static final int action_settings=0x7f090040;
         public static final int amortSpinner=0x7f09000f;
         public static final int amountRow=0x7f090001;
+        public static final int cashPayment=0x7f090037;
+        public static final int cashPaymentUnit=0x7f09003b;
+        public static final int cashPaymentUnitEditText=0x7f09003c;
+        public static final int cashPaymentUnitRow=0x7f09003a;
         public static final int content_frame=0x7f09001c;
-        public static final int costNewLiving=0x7f09002f;
-        public static final int costNewLivingMonthlyFee=0x7f090034;
-        public static final int costNewLivingMonthlyFeeEditText=0x7f090035;
-        public static final int costNewLivingMonthlyFeeRow=0x7f090033;
-        public static final int costNewLivingOperatingCost=0x7f090031;
-        public static final int costNewLivingOperatingCostEditText=0x7f090032;
-        public static final int costOperatingCostRow=0x7f090030;
+        public static final int costNewLiving=0x7f090030;
+        public static final int costNewLivingMonthlyFee=0x7f090035;
+        public static final int costNewLivingMonthlyFeeEditText=0x7f090036;
+        public static final int costNewLivingMonthlyFeeRow=0x7f090034;
+        public static final int costNewLivingOperatingCost=0x7f090032;
+        public static final int costNewLivingOperatingCostEditText=0x7f090033;
+        public static final int costOperatingCostRow=0x7f090031;
         public static final int drawer_layout=0x7f09001b;
         public static final int drawer_list=0x7f09001d;
-        public static final int fragmentTextView=0x7f090036;
-        public static final int household=0x7f09001e;
-        public static final int householdAdultRow=0x7f09001f;
-        public static final int householdAdults=0x7f090020;
-        public static final int householdAdultsSpinner=0x7f090021;
-        public static final int householdCarSpinner=0x7f090027;
-        public static final int householdCars=0x7f090026;
-        public static final int householdCarsRow=0x7f090025;
-        public static final int householdChildRow=0x7f090022;
-        public static final int householdChildren=0x7f090023;
-        public static final int householdChildrenSpinner=0x7f090024;
-        public static final int income=0x7f090028;
-        public static final int incomeOtherEditText=0x7f09002e;
-        public static final int incomeOtherRow=0x7f09002c;
-        public static final int incomeOtherTextView=0x7f09002d;
-        public static final int incomeRow=0x7f090029;
-        public static final int incomeSalaryEditText=0x7f09002b;
-        public static final int incomeSalaryTextView=0x7f09002a;
+        public static final int fragmentTextView=0x7f09003e;
+        public static final int gotCashPaymentRow=0x7f090038;
+        public static final int gotCashPaymentTextView=0x7f090039;
+        public static final int household=0x7f09001f;
+        public static final int householdAdultRow=0x7f090020;
+        public static final int householdAdults=0x7f090021;
+        public static final int householdAdultsSpinner=0x7f090022;
+        public static final int householdCarSpinner=0x7f090028;
+        public static final int householdCars=0x7f090027;
+        public static final int householdCarsRow=0x7f090026;
+        public static final int householdChildRow=0x7f090023;
+        public static final int householdChildren=0x7f090024;
+        public static final int householdChildrenSpinner=0x7f090025;
+        public static final int income=0x7f090029;
+        public static final int incomeOtherEditText=0x7f09002f;
+        public static final int incomeOtherRow=0x7f09002d;
+        public static final int incomeOtherTextView=0x7f09002e;
+        public static final int incomeRow=0x7f09002a;
+        public static final int incomeSalaryEditText=0x7f09002c;
+        public static final int incomeSalaryTextView=0x7f09002b;
         public static final int interestEditText=0x7f090007;
         public static final int interestRow=0x7f090005;
         public static final int interestTextView=0x7f090006;
@@ -89,9 +96,10 @@ public final class R {
         public static final int repayTextView=0x7f09000c;
         public static final int repayTimeSeekBar=0x7f09000b;
         public static final int repayTimeTextView=0x7f09000a;
+        public static final int resultButton=0x7f09003d;
         public static final int resultPaybackRow=0x7f090012;
         public static final int resultRow=0x7f090010;
-        public static final int webView=0x7f090037;
+        public static final int webView=0x7f09003f;
     }
     public static final class layout {
         public static final int activity_interest_layout=0x7f030000;
@@ -116,11 +124,14 @@ public final class R {
         public static final int amortYearTextView=0x7f060009;
         public static final int app_name=0x7f060000;
         public static final int calculateButtonText=0x7f060013;
+        public static final int cashPayment=0x7f06002f;
+        public static final int cashPaymentUnit=0x7f06002e;
         public static final int costNewLiving=0x7f060028;
         public static final int costNewLivingMonthlyFee=0x7f06002a;
         public static final int costNewLivingOperatingCost=0x7f060029;
         public static final int drawer_close=0x7f060003;
         public static final int drawer_open=0x7f060002;
+        public static final int gotCashPayment=0x7f06002d;
         /**  houseLoan 
          */
         public static final int household=0x7f06001e;
@@ -152,6 +163,7 @@ public final class R {
         public static final int repayPlanTextView=0x7f06000e;
         public static final int repayTextView=0x7f06000d;
         public static final int repayTimeTextView=0x7f06000c;
+        public static final int submit_button=0x7f06002c;
         public static final int title_activity_test_fragment=0x7f060004;
         public static final int zeroPrompt=0x7f06002b;
     }

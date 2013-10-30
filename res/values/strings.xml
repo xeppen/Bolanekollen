@@ -57,9 +57,13 @@
     <string name="incomeSalaryHintEditText">0</string>
     <string name="otherLoans">Övriga lån</string>
     <string name="otherLoansCost">Kostnad, kr/mån</string>
-    <string name="costNewLiving">Kostnad nytt boende</string>
+    <string name="costNewLiving"><u>Kostnad nytt boende</u></string>
     <string name="costNewLivingOperatingCost">Driftkostnad, kr/mån</string>
     <string name="costNewLivingMonthlyFee">Månadskostnad, kr/mån</string>
     <string name="zeroPrompt">0</string>
+    <string name="submit_button">Beräkna bolån</string>
+    <string name="gotCashPayment">Max kontoinsats?</string>
+    <string name="cashPaymentUnit">Ange kontoinsats, kr</string>
+    <string name="cashPayment"><u>Kontoinsats</u></string>
     
 </resources>
