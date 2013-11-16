@@ -1,0 +1,238 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/ScrollView02"
+    android:layout_width="fill_parent"
+    android:layout_height="match_parent"
+    android:background="#FCF7E1"
+    android:orientation="vertical" >
+	
+    <LinearLayout
+        android:id="@+id/BankLoanHeadline"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="5dip" >
+
+        <TextView
+            android:id="@+id/BankLoanHeadlineTextView"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/headlines"
+            android:text="" />
+    </LinearLayout>
+    
+    <LinearLayout
+        android:id="@+id/bankLoanRow"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="@dimen/general_padding" >
+
+        <TextView
+            android:id="@+id/bankLoanTextView"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="3"
+            android:text="@string/bankLoanTextView"
+            android:textSize="@dimen/textSize" >
+        </TextView>
+
+        <EditText
+            android:id="@+id/bankLoanEditText"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="7"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            android:hint="@string/bankLoanEditText"
+            android:inputType="text|number" >
+        </EditText>
+
+        <TextView
+            android:id="@+id/bankLoanCurrencyTextView"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="2"
+            android:text="@string/bankLoanCurrencyTextView"
+            android:textSize="@dimen/textSize" >
+        </TextView>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/bankLoanInterestRow"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="@dimen/general_padding" >
+
+        <TextView
+            android:id="@+id/bankLoanInterestTextView"
+            android:layout_width="0dp"
+            android:layout_height="fill_parent"
+            android:layout_weight="3"
+            android:text="@string/bankLoanInterestTextView"
+            android:textSize="@dimen/textSize" >
+        </TextView>
+
+        <EditText
+            android:id="@+id/bankLoanInterestEditText"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="7"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            android:hint="@string/bankLoanInterestEditText"
+            android:inputType="text|number" >
+        </EditText>
+
+        <TextView
+            android:id="@+id/bankLoanInterestUnitTextView"
+            android:layout_width="0dp"
+            android:layout_height="fill_parent"
+            android:layout_weight="2"
+            android:text="@string/bankLoanInterestUnitTextView"
+            android:textSize="@dimen/textSize" >
+        </TextView>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/interestChangeRow"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="@dimen/general_padding" >
+
+        <TextView
+            android:id="@+id/interestChangeTextView"
+            android:layout_width="0dp"
+            android:layout_height="fill_parent"
+            android:layout_weight="3"
+            android:text="@string/interestChangeTextView"
+            android:textSize="@dimen/textSize" >
+        </TextView>
+
+        <TextView
+            android:id="@+id/updatedInterestChangeTextView"
+            android:layout_width="0dp"
+            android:layout_height="fill_parent"
+            android:layout_weight="2"
+            android:text="@string/updatedInterestChangeTextView"
+            android:textSize="@dimen/textSize" >
+        </TextView>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/interestChangeSpinnerRow"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="10dp" >
+
+        <SeekBar
+            android:id="@+id/interestChangeSeekBar"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="7"
+            android:max="30"
+            android:progress="1" />
+    </LinearLayout>
+
+    <View
+        android:layout_width="fill_parent"
+        android:layout_height="1dp"
+        android:background="@android:color/darker_gray" />
+
+    <LinearLayout
+        android:id="@+id/resultRow"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal" >
+
+        <TextView
+            android:id="@+id/privateLoanResult"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:padding="@dimen/general_padding"
+            android:text="@string/privateLoanResult"
+            android:textSize="@dimen/textSize" >
+        </TextView>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/resultBankLoanRow"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/general_padding"
+        android:orientation="horizontal" >
+
+        <TextView
+            android:id="@+id/bankLoanInterestCost"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_weight="4"
+            android:text="@string/bankLoanInterestCost"
+            android:textSize="@dimen/textSize" >
+        </TextView>
+
+        <TextView
+            android:id="@+id/bankLoanInterestCostAmount"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_weight="6"
+            android:text="0.00 kr"
+            android:textSize="@dimen/textSize" >
+        </TextView>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/privateLoanTotalInterestCostRow"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/general_padding"
+        android:orientation="horizontal" >
+
+        <TextView
+            android:id="@+id/bankLoanUpdatedInterestCost"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_weight="4"
+            android:text="@string/bankLoanUpdatedInterestCost"
+            android:textSize="@dimen/textSize" >
+        </TextView>
+
+        <TextView
+            android:id="@+id/bankLoanUpdatedInterestCostTextView"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_weight="6"
+            android:text="0.00 kr"
+            android:textSize="@dimen/textSize" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/bankLoanResultInterestDifferenceRow"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:padding="@dimen/general_padding"
+        android:orientation="horizontal" >
+
+        <TextView
+            android:id="@+id/bankLoanResultInterestDifference"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="4"
+            android:text="@string/bankLoanResultInterestDifference"
+            android:textSize="@dimen/textSize" >
+        </TextView>
+
+        <TextView
+            android:id="@+id/bankLoanResultInterestDifferenceTextView"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_weight="6"
+            android:text="@string/bankLoanResultInterestDifferenceTextView"
+            android:textSize="@dimen/textSize" >
+        </TextView>
+    </LinearLayout>
+
+</LinearLayout>
