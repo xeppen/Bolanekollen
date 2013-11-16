@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:background="@color/bgColor"
+    android:layout_height="match_parent" >
+
+    <LinearLayout
+        android:id="@+id/result"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="@dimen/tighter_padding" >
+
+        <TextView
+            android:id="@+id/resultTextView"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/resultTextView"
+            android:textSize="@dimen/textSize" >
+        </TextView>
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="@dimen/tighter_padding" >
+
+            <TextView
+                android:id="@+id/mortgageResult"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="22sp" >
+            </TextView>
+        </LinearLayout>
+        
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+            <TextView
+                android:id="@+id/mortgageResultUnit"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/mortgageResultUnit"
+                android:textSize="@dimen/textSize" >
+            </TextView>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+            <Button
+                android:id="@+id/goBackButton"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:text="Gå tillbaka" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</RelativeLayout>
