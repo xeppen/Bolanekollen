@@ -1,5 +1,5 @@
 /** Automatically generated file. DO NOT MODIFY */
-package com.javatechig.drawer;
+package com.bolanekollen;
 
 public final class BuildConfig {
     public final static boolean DEBUG = true;

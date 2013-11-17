@@ -1,16 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="app_name">Lånekollen</string>
-    <string name="action_settings">Settings</string>
+    <string name="app_name">Bolånekollen</string>
+    <string name="action_settings"></string>
 
     <string-array name="menus">
         <item>Hem</item>
-        <item>Hur stort bolån får ni?</item>
-        <item>Vad kostar bostaden er?</item>
+        <item>Bolånekalkyl</item>
+        <item>Kostnad - bolån</item>
         <item>Aktuella boräntor</item>
-        <item>Kostnad för privatlån</item>
-        <item>Kostnad för SMS lån</item>
+        <item>Kostnad - privatlån</item>
         <item></item>
     </string-array>
 
@@ -57,9 +56,68 @@
     <string name="incomeSalaryHintEditText">0</string>
     <string name="otherLoans">Övriga lån</string>
     <string name="otherLoansCost">Kostnad, kr/mån</string>
-    <string name="costNewLiving">Kostnad nytt boende</string>
+    <string name="costNewLiving"><u>Kostnad nytt boende</u></string>
     <string name="costNewLivingOperatingCost">Driftkostnad, kr/mån</string>
     <string name="costNewLivingMonthlyFee">Månadskostnad, kr/mån</string>
     <string name="zeroPrompt">0</string>
+    <string name="submit_button">Beräkna bolån</string>
+    <string name="gotCashPayment">Finns given kontaninsats?</string>
+    <string name="cashPaymentUnit">Ange max kontoinsats, kr</string>
+    <string name="cashPayment"><u>Kontoinsats</u></string>
+    <string name="costs"><u>Andra kostnader</u></string>
+    <string name="otherCostsTextView">Kostnader, kr/mån</string>
+    <string name="otherCostsEditText">0</string>
     
+    <!--  Bank interest -->
+    <string name="infoBankInteretTextView">Nedan är dagsaktuella bolåneräntor ifrån de största bankerna i Sverige.</string>
+    <string name="BankNameTextView">Bank</string>
+    <string name="BankInterest1TextView">3 mån</string>
+    <string name="BankInterest2TextView">1 år</string>
+    <string name="BankInterest3TextView">2 år</string>
+    <string name="BankInterest4TextView">3 år</string>
+    <string name="BankInterest5TextView">5 år</string>
+    <string name="bankInterestThankYou">- Bolåneräntorna är hämtade ifrån Smartbudget.se -</string>
+    
+    <!--  Bank loan -->
+    <string name="bankLoanTextView">Bolån</string>
+    <string name="bankLoanEditText">0</string>
+    <string name="bankLoanCurrencyTextView">kr</string>
+    <string name="bankLoanInterestTextView">Ränta</string>
+    <string name="bankLoanInterestEditText">0</string>
+    <string name="bankLoanInterestUnitTextView">%</string>
+    <string name="interestChangeTextView">Ränteförändring</string>
+    <string name="bankLoanInterestCost">Nuvarande räntekostnad:</string>
+    <string name="bankLoanUpdatedInterestCost">Uppdaterad räntekostnad:</string>
+    <string name="bankLoanResultInterestDifference">Skillnad i månadskostnad:</string>
+    <string name="bankLoanResultInterestDifferenceTextView">+0.00kr</string>
+    <string name="updatedInterestChangeTextView">+0.0%</string>
+    <string name="BankLoanHeadlineTextView">Bolånekostnad vid ränteskillnad</string>
+    
+    <!-- Bankloan dialog -->
+    <string name="bankLoanDialogHeadlineTextView">Vad är en boånekalky?</string>
+    <string name="bankLoanDialog1ContentTextView">När du ansöker om ett bolån hos en bank så gör banken en bolånekalkyl som speglar din och din familjs ekonomiska situation. Bolånekalkylen inkluderar hushållets inkomster samt utgifter t.ex. driftkostnader eller räntor för andra lån, samt andra kostnader som förbrukningsartiklar, kläder, mat med mera för att få fram en uppskattning på hur mycket du kan låna.</string>
+    <string name="bankLoanDialogHeadline2TextView">Syftet med en bolånekalkyl?</string>
+    <string name="bankLoanDialog2ContentTextView">När beräkningen med bolånekalkylen görs så bör man altid inkludera scenarier med högre ränta än idag. Detta gör att bankerna kan försäkra sigo att du och ditt hushåll kan klara av en ökning av dina räntekostnader. Man bör se till att det finns en marginal och inte låna upp så att du precis klarar räntekostnaderna idag.</string>
+    <string name="bankLoanDialogHeadline3TextView">Belåningsgrad och amortering</string>
+    <string name="bankLoanDialog3ContentTextView">Tänk också på att du med ett bolån idag max får låna 85&amp; av bostadens värde. Resten av beloppet måste du lägga in kontant. En del banker har även krav på att du måste amortera om du lånar över 75&amp; av bostadens värde. I kalkylen så är 1&amp; årlig amortering inräknad.</string>
+    <string name="bankLoanDialogHeadline4TextView">Schablonbelopp i kalkylen</string>
+    <string name="bankLoanDialog4ContentTextView">För att förenkla bolåneberäkningen så har ett antal schablonbelopp använts för att uppskatta kostnaden. Levnadsomkostnaden för en vuxen uppskattas till 7200 kr samt 11 000 kr för två vuxna. Varje barn uppskattas kosta 2500 kr och varje bil 3000 kr. Utöver alla levnadsomkostnader så bör en familj ha kvar minst 4000 kr i fickpengar/sparande/övriga kostnader per månad.</string>
+    
+    
+    <!-- Private loan dialog -->
+    <string name="interestDialogHeadlineTextView">Rak amortering</string>
+    <string name="interestDialog1ContentTextView">Rak amortering innebär att du betala tillbaka lånet med ett lika stort belopp vid varje amorteringstillfälle. Utöver amorteringen betalar du ränta på lånet. Rak amortering används så gott som alltid vid bostadslån.</string>
+    <string name="interestDialogHeadline2TextView">Annuitet</string>
+    <string name="interestDialog2ContentTextView">Vid annuitet betalar du ett fast belopp vid varje betalningstillfälle. Beloppet ska täcka både räntan på skulden och amorteringen på skulden. Amorteringen ska vara så stor att lånet kommer vara helt avbetalat när lånetslöptid är slut. Beloppet kallas annuitet. Efterom annuiteten är lika stor vid varje tillfälle består den i början av lånets löptid till större delen av ränta och till en mindre del av amortering. Mot slutet av löptiden när skulden har blivit mindre består annuiteten till mindre del av ränta och större del av amortering.</string>
+    
+    <!-- Mortage loan result -->
+    <string name="resultTextView">Du/ni borde kunna köpa bostad för ungefär</string>
+    <string name="mortgageResultUnit">varav kontantinsats: 0 kr (0 %)</string>
+    
+    <!-- Tips and trix -->
+    <string name="tipsIntroduction">...</string>
+    <string name="Tips_1_View">...</string>
+    
+    <!--  Home page  -->
+    <string name="introductionHomePage">Att köpa en egen bostad är för de flesta av oss ett stort och betydelsebullt steg i livet. Ofta handlar affären om mycket pengar och det påverkar hela familjens ekonomi under en lån tid. Med denna app så vill vi hjälpa dig att räkna på ungefär hur dyr bostad er ekonomi klarar samt hur en ändring av till exempel räntan kommer påverka. Vid bostadsköp idag så krävs för det mesta en kontantinsats på minst 15 % av bostadens köpebelopp och för många så kan ett privatlån behövas för att täcka denna del. För att räkna på hur mycket ett privatlån skulle kosta för just dig använd vår privatlånskalkyl i menyn.</string>
 </resources>

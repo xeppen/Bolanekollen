@@ -1,4 +1,10 @@
-package com.javatechig.drawer;
+package com.bolanekollen;
+
+import com.bolanekollen.fragments.BankInterestFragment;
+import com.bolanekollen.fragments.BankLoanCostFragment;
+import com.bolanekollen.fragments.HomeFragment;
+import com.bolanekollen.fragments.MortgageFragment;
+import com.bolanekollen.fragments.PrivateLoanFragment;
 
 import android.annotation.SuppressLint;
 import android.app.Activity;
@@ -16,22 +22,28 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
 public class MainActivity extends Activity {
-	
+
 	// Define Fragments
+	HomeFragment hFragment = new HomeFragment();
 	MortgageFragment mFragment = new MortgageFragment();
-	InterestFragment iFragment = new InterestFragment();
-	
+	BankLoanCostFragment blFragment = new BankLoanCostFragment();
+	BankInterestFragment biFragment = new BankInterestFragment();
+	PrivateLoanFragment plFragment = new PrivateLoanFragment();
+
 	// Within which the entire activity is enclosed
 	private DrawerLayout mDrawerLayout;
 
 	// ListView represents Navigation Drawer
 	private ListView mDrawerList;
 
-	// ActionBarDrawerToggle indicates the presence of Navigation Drawer in the action bar
+	// ActionBarDrawerToggle indicates the presence of Navigation Drawer in the
+	// action bar
 	private ActionBarDrawerToggle mDrawerToggle;
 
 	// Title of the action bar
 	private String mTitle = "";
+
+	private Integer currentPosition = 0;
 
 	@SuppressLint("NewApi")
 	@Override
@@ -40,8 +52,8 @@ public class MainActivity extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
 
-		mTitle = "Bolånekollen";
-		getActionBar().setTitle(mTitle);
+		//mTitle = "Bolånekollen";
+		//getActionBar().setTitle(mTitle);
 
 		// Getting reference to the DrawerLayout
 		mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -72,8 +84,9 @@ public class MainActivity extends Activity {
 		mDrawerLayout.setDrawerListener(mDrawerToggle);
 
 		// Creating an ArrayAdapter to add items to the listview mDrawerList
-		ArrayAdapter<String> adapter = new ArrayAdapter<String>(getBaseContext(), 
-				R.layout.drawer_list_item, getResources().getStringArray(R.array.menus));
+		ArrayAdapter<String> adapter = new ArrayAdapter<String>(
+				getBaseContext(), R.layout.drawer_list_item, getResources()
+						.getStringArray(R.array.menus));
 
 		// Setting the adapter on mDrawerList
 		mDrawerList.setAdapter(adapter);
@@ -92,71 +105,77 @@ public class MainActivity extends Activity {
 					int position, long id) {
 
 				// Getting an array of rivers
-				String[] menuItems = getResources().getStringArray(R.array.menus);
+				String[] menuItems = getResources().getStringArray(
+						R.array.menus);
 
 				// Currently selected river
 				mTitle = menuItems[position];
 
 				// Creating a fragment object
-				//MortgageFragment rFragment = new MortgageFragment();
-				
+				// MortgageFragment rFragment = new MortgageFragment();
+
 				// Getting reference to the FragmentManager
 				FragmentManager fragmentManager = getFragmentManager();
 
 				// Creating a fragment transaction
 				FragmentTransaction ft = fragmentManager.beginTransaction();
-				
+
 				// Passing selected item information to fragment
 				Bundle data = new Bundle();
 				data.putInt("position", position);
-				data.putString("url", getUrl(position));
-				if(position == 1){
-					mFragment.setArguments(data);
-					
-					// Adding a fragment to the fragment transaction
-					ft.replace(R.id.content_frame, mFragment);
-				} else if(position == 4){
-					iFragment.setArguments(data);
-					
-					// Adding a fragment to the fragment transaction
-					ft.replace(R.id.content_frame, iFragment);
-				}
+				if (currentPosition != position) {
+					currentPosition = position;
+					if (position == 0) {
+						hFragment.setArguments(data);
 
-				// Committing the transaction
-				ft.commit();
+						// Adding a fragment to the fragment transaction
+						ft.replace(R.id.content_frame, hFragment);
+					} else if (position == 1) {
+						mFragment.setArguments(data);
+
+						// Adding a fragment to the fragment transaction
+						ft.replace(R.id.content_frame, mFragment);
+					} else if (position == 2) {
+						blFragment.setArguments(data);
+
+						// Adding a fragment to the fragment transaction
+						ft.replace(R.id.content_frame, blFragment);
+					} else if (position == 3) {
+						biFragment.setArguments(data);
+
+						// Adding a fragment to the fragment transaction
+						ft.replace(R.id.content_frame, biFragment);
+					} else if (position == 4) {
+						plFragment.setArguments(data);
+
+						// Adding a fragment to the fragment transaction
+						ft.replace(R.id.content_frame, plFragment);
+					}
+					// Committing the transaction
+					ft.commit();
+				}
 
 				// Closing the drawer
 				mDrawerLayout.closeDrawer(mDrawerList);
-
+				
 			}
 		});
-	}
-
-	protected String getUrl(int position) {
-		switch (position) {
-		case 0:
-			return "http://javatechig.com";
-		case 1:
-			return "http://javatechig.com/category/android/";
-		case 2:
-			return "http://javatechig.com/category/blackberry/";
-		case 3:
-			return "http://javatechig.com/category/j2me/";
-		case 4:
-			return "http://javatechig.com/category/sencha-touch/";
-		case 5:
-			return "http://javatechig.com/category/phonegap/";
-		case 6:
-			return "http://javatechig.com/category/java/";
-		default:
-			return "http://javatechig.com";
-		}
 	}
 
 	@Override
 	protected void onPostCreate(Bundle savedInstanceState) {
 		super.onPostCreate(savedInstanceState);
 		mDrawerToggle.syncState();
+		
+		// Getting reference to the FragmentManager
+		FragmentManager fragmentManager = getFragmentManager();
+
+		// Creating a fragment transaction
+		FragmentTransaction ft = fragmentManager.beginTransaction();
+		// Adding a fragment to the fragment transaction
+		ft.replace(R.id.content_frame, hFragment);
+		
+		ft.commit();
 	}
 
 	@Override
@@ -176,10 +195,12 @@ public class MainActivity extends Activity {
 		menu.findItem(R.id.action_settings).setVisible(!drawerOpen);
 		return super.onPrepareOptionsMenu(menu);
 	}
-
+	
+	
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		getMenuInflater().inflate(R.menu.main, menu);
 		return true;
 	}
+	
 }

@@ -2,13 +2,29 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/ScrollView01"
     android:layout_width="fill_parent"
-    android:layout_height="wrap_content"
+    android:layout_height="fill_parent"
+    android:background="@color/bgColor"
     android:orientation="vertical" >
+	
+    <LinearLayout
+        android:id="@+id/privateLoanInformation"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="5dip" >
 
+        <TextView
+            android:id="@+id/privateLoanInformationHeadline"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/headlines"
+            android:text="Räkna kostnad av privatlån" />
+    </LinearLayout>
+    
     <LinearLayout
         android:id="@+id/amountRow"
         android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
+        android:layout_height="wrap_content"
         android:padding="@dimen/general_padding"
         android:orientation="horizontal" >
 
@@ -44,7 +60,7 @@
     <LinearLayout
         android:id="@+id/amortRow"
         android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
+        android:layout_height="wrap_content"
         android:orientation="horizontal" >
 
         <TextView
@@ -68,14 +84,14 @@
     <LinearLayout
         android:id="@+id/interestRow"
         android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
+        android:layout_height="wrap_content"
         android:padding="@dimen/general_padding"
         android:orientation="horizontal" >
 		
         <TextView
             android:id="@+id/interestTextView"
             android:layout_width="0dp"
-            android:layout_height="fill_parent"
+            android:layout_height="wrap_content"
             android:layout_weight="3"
             android:textSize="@dimen/textSize" 
             android:text="@string/interestTextView" >
@@ -93,7 +109,7 @@
         <TextView
             android:id="@+id/interestUnitTextView"
             android:layout_width="0dp"
-            android:layout_height="fill_parent"
+            android:layout_height="wrap_content"
             android:layout_weight="2"
             android:textSize="@dimen/textSize" 
             android:text="@string/interestUnitTextView" >
@@ -103,14 +119,14 @@
     <LinearLayout
         android:id="@+id/repayRow"
         android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
+        android:layout_height="wrap_content"
         android:padding="@dimen/general_padding"
         android:orientation="horizontal" >
 		
         <TextView
             android:id="@+id/repayTimeTextView"
             android:layout_width="0dp"
-            android:layout_height="fill_parent"
+            android:layout_height="wrap_content"
             android:layout_weight="3"
             android:textSize="@dimen/textSize" 
             android:text="@string/repayTimeTextView" >
@@ -127,7 +143,7 @@
         <TextView
             android:id="@+id/repayTextView"
             android:layout_width="0dp"
-            android:layout_height="fill_parent"
+            android:layout_height="wrap_content"
             android:layout_weight="2"
             android:textSize="@dimen/textSize"
             android:text="@string/repayTextView" >
@@ -137,14 +153,14 @@
     <LinearLayout
         android:id="@+id/repayPlanRow"
         android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
+        android:layout_height="wrap_content"
         android:padding="@dimen/general_padding"
         android:orientation="horizontal" >
 
         <TextView
             android:id="@+id/repayPlanTextView"
             android:layout_width="0dp"
-            android:layout_height="fill_parent"
+            android:layout_height="wrap_content"
             android:text="@string/repayPlanTextView"
             android:textSize="@dimen/textSize" 
             android:layout_weight="3" >
@@ -159,6 +175,15 @@
             android:entries="@array/amortTypes"
             android:prompt="@string/amortType1" >
         </Spinner>
+
+        <ImageView
+            android:id="@+id/privateLoanInfoButton"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_weight="1"
+            android:layout_gravity="center_vertical|center_horizontal"
+            android:src="@drawable/info_icon" />
+
     </LinearLayout>
     
     <View
@@ -169,28 +194,28 @@
     <LinearLayout
         android:id="@+id/resultRow"
         android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
+        android:layout_height="wrap_content"
         android:orientation="horizontal" >
 
         <TextView
             android:id="@+id/privateLoanResult"
             android:layout_width="fill_parent"
-            android:layout_height="fill_parent"
+            android:layout_height="wrap_content"
             android:text="@string/privateLoanResult"
-            android:textSize="@dimen/textSize">
+            android:textSize="@dimen/textSizeBigger">
         </TextView>
     </LinearLayout>
     
     <LinearLayout
         android:id="@+id/resultPaybackRow"
         android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
+        android:layout_height="wrap_content"
         android:orientation="horizontal" >
 
         <TextView
             android:id="@+id/privateLoanPayback"
             android:layout_width="fill_parent"
-            android:layout_height="fill_parent"
+            android:layout_height="wrap_content"
             android:text="@string/privateLoanPayback"
             android:layout_weight="4"
             android:textSize="@dimen/textSize">
@@ -199,7 +224,7 @@
         <TextView
             android:id="@+id/privateLoanPaybackTextView"
             android:layout_width="fill_parent"
-            android:layout_height="fill_parent"
+            android:layout_height="wrap_content"
             android:layout_weight="6"
             android:text="@string/privateLoanPaybackTextView"
             android:textSize="@dimen/textSize">
@@ -209,13 +234,13 @@
     <LinearLayout
         android:id="@+id/privateLoanTotalInterestCostRow"
         android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
+        android:layout_height="wrap_content"
         android:orientation="horizontal" >
 
         <TextView
             android:id="@+id/privateLoanTotalInterestCost"
             android:layout_width="fill_parent"
-            android:layout_height="fill_parent"
+            android:layout_height="wrap_content"
             android:text="@string/privateLoanTotalInterestCost"
             android:layout_weight="4"
             android:textSize="@dimen/textSize">
@@ -224,7 +249,7 @@
         <TextView
             android:id="@+id/privateLoanTotalInterestCostEditTextView"
             android:layout_width="fill_parent"
-            android:layout_height="fill_parent"
+            android:layout_height="wrap_content"
             android:layout_weight="6"
             android:text="@string/privateLoanTotalInterestCostEditTextView"
             android:textSize="@dimen/textSize">
@@ -234,13 +259,13 @@
     <LinearLayout
         android:id="@+id/privateLoanEffectiveInterestRow"
         android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
+        android:layout_height="wrap_content"
         android:orientation="horizontal" >
 
         <TextView
             android:id="@+id/privateLoanEffectiveInterest"
             android:layout_width="fill_parent"
-            android:layout_height="fill_parent"
+            android:layout_height="wrap_content"
             android:text="@string/privateLoanEffectiveInterest"
             android:layout_weight="4"
             android:textSize="@dimen/textSize">
@@ -249,7 +274,7 @@
         <TextView
             android:id="@+id/privateLoanEffectiveInterestEditTextView"
             android:layout_width="fill_parent"
-            android:layout_height="fill_parent"
+            android:layout_height="wrap_content"
             android:layout_weight="6"
             android:text="@string/privateLoanEffectiveInterestEditTextView"
             android:textSize="@dimen/textSize">
