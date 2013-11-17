@@ -25,7 +25,7 @@ public class MortgageResultFragment extends Fragment {
 
 		// Retrieving the currently selected item number
 		final Bundle bundle = this.getArguments();
-		int maxBuyPrice = bundle.getInt("maxBuyPrice", 0);
+		int maxBuyPrice = bundle.getInt("totalBuyPrice", 0);
 		int cashPayment = bundle.getInt("cashPayment", 0);
 		float percentage = 0;
 		if(maxBuyPrice != 0){
