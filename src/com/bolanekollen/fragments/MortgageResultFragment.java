@@ -25,8 +25,8 @@ public class MortgageResultFragment extends Fragment {
 
 		// Retrieving the currently selected item number
 		final Bundle bundle = this.getArguments();
-		int maxBuyPrice = bundle.getInt("totalBuyPrice", 0);
-		int cashPayment = bundle.getInt("cashPayment", 0);
+		int maxBuyPrice = bundle.getInt("totalBuyPrice");
+		int cashPayment = bundle.getInt("cashPayment");
 		float percentage = 0;
 		if(maxBuyPrice != 0){
 			float p = (float) cashPayment/maxBuyPrice * 100;
@@ -38,7 +38,7 @@ public class MortgageResultFragment extends Fragment {
 		String[] menus = getResources().getStringArray(R.array.menus);
 
 		// Creating view corresponding to the fragment
-		View v = inflater.inflate(R.layout.mortgage_result_layout, container,
+		View v = inflater.inflate(R.layout.activity_mortgage_result_layout, container,
 				false);
 
 		// Assign elements
@@ -85,5 +85,7 @@ public class MortgageResultFragment extends Fragment {
 	private static String prettifyString2(String s){
 		return prettifyString(Integer.valueOf(s));
 	}
+	
+	
 
 }

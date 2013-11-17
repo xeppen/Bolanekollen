@@ -12,18 +12,27 @@
         android:orientation="vertical" >
 
         <LinearLayout
-            android:id="@+id/privateLoanInformation"
+            android:id="@+id/mortgageInformation"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             android:padding="5dip" >
 
             <TextView
-                android:id="@+id/privateLoanInformationHeadline"
-                android:layout_width="fill_parent"
+                android:id="@+id/mortgageInformationHeadline"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_weight="8"
                 android:text="Bolånekalkyl"
                 android:textSize="@dimen/headlines" />
+
+            <ImageView
+                android:id="@+id/mortgageInfoButton"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:layout_gravity="center_vertical|center_horizontal"
+                android:layout_weight="1"
+                android:src="@drawable/info_icon" />
         </LinearLayout>
 
         <TextView
@@ -299,7 +308,6 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="3"
                 android:text="" />
-
         </LinearLayout>
 
         <LinearLayout
