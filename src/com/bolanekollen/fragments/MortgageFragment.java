@@ -43,9 +43,11 @@ public class MortgageFragment extends Fragment {
 	int otherCosts = 0;
 	int maintenenceCost = 0;
 	int monthlyCost = 0;
+	int totalCost = 0;
 
 	boolean useMaxCashPayment = false;
 	int maxCashPayment = 0;
+	double interest = 0.07;
 	
 
 	// Define static values
@@ -54,6 +56,7 @@ public class MortgageFragment extends Fragment {
 	static final Integer COST_CHILDREN = 2500;
 	static final Integer COST_CAR = 3000;
 	static final Integer CASH_OVER = 4000;
+	static final Double PAYBACK_PERCENTAGE = 0.01;
 
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -107,7 +110,16 @@ public class MortgageFragment extends Fragment {
 	protected void calulate() {
 		fetchValues();
 		
+		int leftOverCash = totalIncome - totalCost - CASH_OVER;
+		double maxLoanAmount = (leftOverCash * 12)/(interest + PAYBACK_PERCENTAGE);
 		
+		double cashPayment = 0;
+		if(useMaxCashPayment)
+			cashPayment = (double) maxCashPayment;
+		else
+			cashPayment = maxLoanAmount/0.85;
+		
+		double totalBuyPrice = cashPayment + maxLoanAmount;
 
 	}
 
@@ -128,7 +140,7 @@ public class MortgageFragment extends Fragment {
 		maintenenceCost = Integer.valueOf(costNewLivingMonthlyFeeEditText
 				.getText().toString());
 		monthlyCost = Integer.valueOf(otherCostsEditText.getText().toString());
-		;
+		totalCost = otherCosts + maintenenceCost + monthlyCost;
 
 		useMaxCashPayment = useMaxCashPaymentCheckBox.isChecked();
 		if (useMaxCashPayment) {
