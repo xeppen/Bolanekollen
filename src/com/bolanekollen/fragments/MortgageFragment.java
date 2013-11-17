@@ -11,6 +11,8 @@ import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.CheckBox;
+import android.widget.CompoundButton.OnCheckedChangeListener;
+import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
@@ -102,11 +104,12 @@ public class MortgageFragment extends Fragment {
 
 		useMaxCashPaymentCheckBox = (CheckBox) v
 				.findViewById(R.id.useMaxCashPaymentCheckBox);
-
+		useMaxCashPaymentCheckBox.setOnCheckedChangeListener(useMaxCashPaymentCheckBoxListener);
 		resultButton.setOnClickListener(resultButtonListener);
 		
 
-		if (isVariableAvaliable(savedInstanceState, "totalBuyPrice"))
+		//if (isVariableAvaliable(savedInstanceState, "totalBuyPrice"))
+		if (getArguments().containsKey("totalBuyPrice"))
 			setSavedValues(savedInstanceState);
 		
 		if(useMaxCashPayment){
@@ -134,7 +137,7 @@ public class MortgageFragment extends Fragment {
 		monthlyCost = data.getInt("monthlyCost", 0);
 		totalCost = data.getInt("totalCost", 0);
 
-		useMaxCashPayment = data.getBoolean("useMaxCashPayment", 0);
+		useMaxCashPayment = data.getBoolean("useMaxCashPayment", false);
 		maxCashPayment = data.getInt("maxCashPayment", 0);
 		interest = data.getDouble("interest", 0.07);
 		totalBuyPrice = data.getDouble("totalBuyPrice", 0);
@@ -149,7 +152,21 @@ public class MortgageFragment extends Fragment {
 			calulate();
 		}
 	};
-
+	
+	OnCheckedChangeListener useMaxCashPaymentCheckBoxListener = new OnCheckedChangeListener() {
+		
+		@Override
+		public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+			if(isChecked){
+				cashPaymentUnit.setEnabled(true);
+				cashPaymentUnitEditText.setEnabled(true);
+			} else{
+				cashPaymentUnit.setEnabled(false);
+				cashPaymentUnitEditText.setEnabled(false);
+			}
+			
+		}
+	};
 	protected void calulate() {
 		fetchValues();
 
