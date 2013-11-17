@@ -6,4 +6,6 @@
 	<dimen name="general_padding">5dp</dimen>
 	<dimen name="tighter_padding">5dp</dimen>
 	<dimen name="textSize">15sp</dimen>
+	<dimen name="textSizeBigger">18sp</dimen>
+	<dimen name="headlines">20sp</dimen>
 </resources>

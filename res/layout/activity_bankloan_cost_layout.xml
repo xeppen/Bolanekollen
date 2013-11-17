@@ -18,7 +18,7 @@
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:textSize="@dimen/headlines"
-            android:text="" />
+            android:text="@string/BankLoanHeadlineTextView" />
     </LinearLayout>
     
     <LinearLayout
@@ -126,6 +126,8 @@
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
         android:padding="10dp" >
 
         <SeekBar
@@ -134,7 +136,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="7"
             android:max="30"
-            android:progress="1" />
+            android:progress="0" />
     </LinearLayout>
 
     <View

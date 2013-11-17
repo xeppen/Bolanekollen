@@ -1,6 +1,6 @@
 package com.bolanekollen.fragments;
 
-import com.javatechig.drawer.R;
+import com.bolanekollen.R;
 
 import android.app.Fragment;
 import android.os.Bundle;

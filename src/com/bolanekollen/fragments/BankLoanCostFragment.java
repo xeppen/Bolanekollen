@@ -5,8 +5,8 @@ import java.math.RoundingMode;
 import java.text.DecimalFormat;
 import java.text.DecimalFormatSymbols;
 
+import com.bolanekollen.R;
 import com.bolanekollen.util.GenericTextWatcher;
-import com.javatechig.drawer.R;
 
 import android.app.Fragment;
 import android.os.Bundle;
@@ -59,7 +59,7 @@ public class BankLoanCostFragment extends Fragment {
 		String[] menus = getResources().getStringArray(R.array.menus);
 
 		// Creating view corresponding to the fragment
-		View v = inflater.inflate(R.layout.activity_bankloan_layout, container,
+		View v = inflater.inflate(R.layout.activity_bankloan_cost_layout, container,
 				false);
 
 		// Assign all elements

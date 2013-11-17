@@ -3,7 +3,7 @@ package com.bolanekollen.fragments;
 import java.text.DecimalFormat;
 import java.text.DecimalFormatSymbols;
 
-import com.javatechig.drawer.R;
+import com.bolanekollen.R;
 
 import android.app.Fragment;
 import android.app.FragmentManager;

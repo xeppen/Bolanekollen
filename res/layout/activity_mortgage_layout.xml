@@ -2,13 +2,29 @@
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/ScrollView01"
     android:layout_width="fill_parent"
-    android:layout_height="wrap_content" >
+    android:layout_height="fill_parent"
+    android:background="@color/bgColor" >
 
     <LinearLayout
         android:id="@+id/View01"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical" >
+
+        <LinearLayout
+            android:id="@+id/privateLoanInformation"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="5dip" >
+
+            <TextView
+                android:id="@+id/privateLoanInformationHeadline"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:text="Bolånekalkyl"
+                android:textSize="@dimen/headlines" />
+        </LinearLayout>
 
         <TextView
             android:id="@+id/household"
@@ -160,6 +176,40 @@
         </LinearLayout>
 
         <TextView
+            android:id="@+id/costs"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/costs"
+            android:textSize="18sp" >
+        </TextView>
+
+        <LinearLayout
+            android:id="@+id/costRow"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:orientation="horizontal"
+            android:padding="@dimen/tighter_padding" >
+
+            <TextView
+                android:id="@+id/otherCostsTextView"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="4"
+                android:text="@string/otherCostsTextView"
+                android:textSize="@dimen/textSize" >
+            </TextView>
+
+            <EditText
+                android:id="@+id/otherCostsEditText"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="3"
+                android:hint="@string/otherCostsEditText"
+                android:inputType="text|number" >
+            </EditText>
+        </LinearLayout>
+
+        <TextView
             android:id="@+id/costNewLiving"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
@@ -242,6 +292,14 @@
                 android:text="@string/costNewLivingOperatingCost"
                 android:textSize="@dimen/textSize" >
             </TextView>
+
+            <CheckBox
+                android:id="@+id/useMaxCashPaymentCheckBox"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="3"
+                android:text="" />
+
         </LinearLayout>
 
         <LinearLayout

@@ -2,7 +2,7 @@ package com.bolanekollen.util;
 
 import java.util.List;
 
-import com.javatechig.drawer.R;
+import com.bolanekollen.R;
 
 import android.content.Context;
 import android.view.LayoutInflater;
