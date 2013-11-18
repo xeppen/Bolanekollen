@@ -3,6 +3,7 @@
     android:id="@+id/ScrollView01"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
+    android:padding="@dimen/general_padding"
     android:background="@color/bgColor" >
 
     <LinearLayout

@@ -195,6 +195,7 @@
         android:id="@+id/resultRow"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
+        android:padding="@dimen/general_padding"
         android:orientation="horizontal" >
 
         <TextView
@@ -210,6 +211,7 @@
         android:id="@+id/resultPaybackRow"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
+        android:paddingLeft="@dimen/general_padding"
         android:orientation="horizontal" >
 
         <TextView
@@ -235,6 +237,7 @@
         android:id="@+id/privateLoanTotalInterestCostRow"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
+        android:paddingLeft="@dimen/general_padding"
         android:orientation="horizontal" >
 
         <TextView
@@ -260,6 +263,7 @@
         android:id="@+id/privateLoanEffectiveInterestRow"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
+        android:paddingLeft="@dimen/general_padding"
         android:orientation="horizontal" >
 
         <TextView

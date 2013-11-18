@@ -100,8 +100,9 @@ public class BankInterestFragment extends Fragment {
 
 			boolean refreshXML = checkXMLFreshness();
 			Log.d("Seb", "refreshXML: " + refreshXML);
-			//refreshXML = false;
+			//refreshXML = true;
 			boolean NetworkAvailable = isNetworkAvailable(mContext);
+			//NetworkAvailable = true;
 			if (refreshXML) {
 				if (NetworkAvailable) {
 					try {
@@ -306,10 +307,6 @@ public class BankInterestFragment extends Fragment {
 		return "";
 	}
 
-	public void alert(String s) {
-		Toast.makeText(this.getActivity(), s, Toast.LENGTH_SHORT).show();
-	}
-
 	public void setCustomAdapter() {
 		adapter = new BankInterestAdapter(getActivity(), R.id.bankInterestList,
 				banks);
@@ -334,5 +331,8 @@ public class BankInterestFragment extends Fragment {
 			}
 		}
 		return false;
+	}
+	private void alert(String s) {
+		Toast.makeText(getActivity(), s, Toast.LENGTH_SHORT).show();
 	}
 }

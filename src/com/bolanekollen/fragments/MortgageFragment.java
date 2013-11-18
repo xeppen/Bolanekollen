@@ -118,7 +118,7 @@ public class MortgageFragment extends Fragment {
 
 		// if (isVariableAvaliable(savedInstanceState, "totalBuyPrice"))
 		if (getArguments().containsKey("totalBuyPrice"))
-			setSavedValues(savedInstanceState);
+			setSavedValues(this.getArguments());
 
 		addEditBoxChangeListener();
 		return v;
@@ -145,8 +145,8 @@ public class MortgageFragment extends Fragment {
 	}
 
 	private void setSavedValues(Bundle data) {
-		/*
-		adults = data.getInt("adults", 0);
+		
+		adults = data.getInt("adults", 1);
 		children = data.getInt("children", 0);
 		cars = data.getInt("cars", 0);
 
@@ -162,9 +162,9 @@ public class MortgageFragment extends Fragment {
 		useMaxCashPayment = data.getBoolean("useMaxCashPayment", false);
 		maxCashPayment = data.getInt("maxCashPayment", 0);
 		interest = data.getDouble("interest", 0.07);
-		totalBuyPrice = data.getDouble("totalBuyPrice", 0);
-		cashPayment = data.getDouble("cashPayment", 0);
-		*/
+		totalBuyPrice = (double)data.getInt("totalBuyPrice", 0);
+		cashPayment = (double)data.getInt("cashPayment", 0);
+		
 		setSavedValuesToFields();
 
 	}
@@ -179,10 +179,10 @@ public class MortgageFragment extends Fragment {
 		costNewLivingOperatingCostEditText.setText(prettifyString(maintenenceCost));
 		costNewLivingMonthlyFeeEditText.setText(prettifyString(monthlyCost));
 		otherCostsEditText.setText(prettifyString(otherCosts));
-		cashPaymentUnitEditText.setText(prettifyString(totalCost));
 		
 		if (useMaxCashPayment) {
 			useMaxCashPaymentCheckBox.setChecked(useMaxCashPayment);
+			cashPaymentUnitEditText.setText(prettifyString3(cashPayment));
 			cashPaymentUnit.setEnabled(true);
 			cashPaymentUnitEditText.setEnabled(true);
 		}
@@ -379,6 +379,9 @@ public class MortgageFragment extends Fragment {
 
 	private static String prettifyString2(String s) {
 		return prettifyString(Integer.valueOf(s));
+	}
+	private static String prettifyString3(Double d) {
+		return prettifyString(d.intValue());
 	}
 	protected double truncate(double d) {
 		return Math.floor(d / 1000) * 1000;

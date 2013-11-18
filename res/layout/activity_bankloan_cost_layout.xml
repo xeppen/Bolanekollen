@@ -156,7 +156,7 @@
             android:layout_height="fill_parent"
             android:padding="@dimen/general_padding"
             android:text="@string/privateLoanResult"
-            android:textSize="@dimen/textSize" >
+            android:textSize="@dimen/textSizeBigger" >
         </TextView>
     </LinearLayout>
 
@@ -181,7 +181,7 @@
             android:layout_width="fill_parent"
             android:layout_height="fill_parent"
             android:layout_weight="6"
-            android:text="0.00 kr"
+            android:text="0.0 kr/mån"
             android:textSize="@dimen/textSize" >
         </TextView>
     </LinearLayout>
@@ -207,7 +207,7 @@
             android:layout_width="fill_parent"
             android:layout_height="fill_parent"
             android:layout_weight="6"
-            android:text="0.00 kr"
+            android:text="0.0 kr/mån"
             android:textSize="@dimen/textSize" />
     </LinearLayout>
 

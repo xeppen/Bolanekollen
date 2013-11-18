@@ -67,14 +67,14 @@ public class MainActivity extends Activity {
 
 			/** Called when drawer is closed */
 			public void onDrawerClosed(View view) {
-				getActionBar().setTitle(mTitle);
+				//getActionBar().setTitle(mTitle);
 				invalidateOptionsMenu();
 
 			}
 
 			/** Called when a drawer is opened */
 			public void onDrawerOpened(View drawerView) {
-				getActionBar().setTitle(mTitle);
+				//getActionBar().setTitle(mTitle);
 				invalidateOptionsMenu();
 			}
 
@@ -109,7 +109,7 @@ public class MainActivity extends Activity {
 						R.array.menus);
 
 				// Currently selected river
-				mTitle = menuItems[position];
+				//mTitle = menuItems[position];
 
 				// Creating a fragment object
 				// MortgageFragment rFragment = new MortgageFragment();
