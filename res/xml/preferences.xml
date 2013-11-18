@@ -5,13 +5,30 @@
         android:summary="Sätt schablonbelopp för bolånekalkylen."
         android:title="Schablonbelopp" >
         <EditTextPreference
+            android:defaultValue="@string/cost_one_adult"
             android:key="cost_one_adult"
             android:summary="Levnadskostnaden för en ensamstående vuxen per månad."
-            android:title="Ensamstående vuxen" android:defaultValue="@string/cost_one_adult"/>
+            android:title="Ensamstående vuxen" />
         <EditTextPreference
+            android:defaultValue="@string/cost_two_adults"
             android:key="cost_two_adults"
             android:summary="Levnadskostnaden för gifta/sambos/liknande per månad."
-            android:title="Gifta/Sambos/Liknande" android:defaultValue="@string/cost_two_adults"/>
+            android:title="Gifta/Sambos/Liknande" />
+        <EditTextPreference
+            android:defaultValue="@string/cost_children"
+            android:key="cost_children"
+            android:summary="Levnadskostnaden för ett barn per månad."
+            android:title="Per barn" />
+        <EditTextPreference
+            android:defaultValue="@string/cost_car"
+            android:key="cost_car"
+            android:summary="Totalkostnaden för en bil per månad."
+            android:title="Per bil" />
+        <EditTextPreference
+            android:defaultValue="@string/cash_over"
+            android:key="cash_over"
+            android:summary="Pengar som ska användas för att spara, till oväntade utgifter och annat."
+            android:title="Spar samt övrigt" />
     </PreferenceCategory>
 
 </PreferenceScreen>

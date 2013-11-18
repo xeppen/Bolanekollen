@@ -48,6 +48,7 @@ public class MainActivity extends Activity {
 	private String mTitle = "";
 
 	private Integer currentPosition = 0;
+	private Integer previousPosition = 0;
 
 	@SuppressLint("NewApi")
 	@Override
@@ -171,7 +172,7 @@ public class MainActivity extends Activity {
 		super.onPostCreate(savedInstanceState);
 		mDrawerToggle.syncState();
 
-		Log.d("BolŒnekollen", "Orientation change!");
+		Log.d("Bolånekollen", "Orientation change!");
 
 		// Getting reference to the FragmentManager
 		FragmentManager fragmentManager = getFragmentManager();
@@ -218,22 +219,39 @@ public class MainActivity extends Activity {
 
 	@Override
 	public boolean onOptionsItemSelected(MenuItem item) {
-		Toast.makeText(this, "Meny clicked!", Toast.LENGTH_SHORT).show();
+		
 		if (mDrawerToggle.onOptionsItemSelected(item)) {
 			return true;
 		}
-		openSettingsMenu();
-		return super.onOptionsItemSelected(item);
-	}
-
-	private void openSettingsMenu() {
 		
 		FragmentManager fragmentManager = getFragmentManager();
-		// Creating a fragment transaction
 		FragmentTransaction ft = fragmentManager.beginTransaction();
-		ft.replace(R.id.content_frame, pFragment);
-		// Committing the transaction
-		ft.commit();
+		
+		if(currentPosition == -1){
+			
+			int position = previousPosition;
+			currentPosition = position;
+			if (position == 0) {
+				ft.replace(R.id.content_frame, hFragment);
+			} else if (position == 1) {
+				ft.replace(R.id.content_frame, mFragment);
+			} else if (position == 2) {
+				ft.replace(R.id.content_frame, blFragment);
+			} else if (position == 3) {
+				ft.replace(R.id.content_frame, biFragment);
+			} else if (position == 4) {
+				ft.replace(R.id.content_frame, plFragment);
+			}
+			// Committing the transaction
+			ft.commit();
+		} else{
+			previousPosition = currentPosition;
+			currentPosition = -1;
+			
+			ft.replace(R.id.content_frame, pFragment);
+			ft.commit();
+		}
+		return super.onOptionsItemSelected(item);
 	}
 
 	/** Called whenever we call invalidateOptionsMenu() */
