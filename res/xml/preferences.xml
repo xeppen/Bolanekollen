@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android" >
+
+    <PreferenceCategory
+        android:summary="Sätt schablonbelopp för bolånekalkylen."
+        android:title="Schablonbelopp" >
+        <EditTextPreference
+            android:key="cost_one_adult"
+            android:summary="Levnadskostnaden för en ensamstående vuxen per månad."
+            android:title="Ensamstående vuxen" android:defaultValue="@string/cost_one_adult"/>
+        <EditTextPreference
+            android:key="cost_two_adults"
+            android:summary="Levnadskostnaden för gifta/sambos/liknande per månad."
+            android:title="Gifta/Sambos/Liknande" android:defaultValue="@string/cost_two_adults"/>
+    </PreferenceCategory>
+
+</PreferenceScreen>
