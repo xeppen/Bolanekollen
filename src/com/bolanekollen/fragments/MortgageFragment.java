@@ -21,6 +21,7 @@ import android.app.AlertDialog;
 import android.app.Fragment;
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -30,6 +31,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
@@ -38,6 +40,7 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.bolanekollen.R;
 import com.bolanekollen.util.Bank;
@@ -78,7 +81,7 @@ public class MortgageFragment extends Fragment {
 
 	boolean useMaxCashPayment = false;
 	int maxCashPayment = 0;
-	double interest = 0.07;
+	double interest = 0.06;
 	double totalBuyPrice = 0;
 	double cashPayment = 0;
 
@@ -89,6 +92,7 @@ public class MortgageFragment extends Fragment {
 	static final Integer COST_CAR = 3000;
 	static final Integer CASH_OVER = 4000;
 	static final Double PAYBACK_PERCENTAGE = 0.01;
+	static final Double ADDED_PERCENTAGE = 0.02;
 
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -163,12 +167,14 @@ public class MortgageFragment extends Fragment {
 				if (aBank != null)
 					banks.add(aBank);
 			}
-			for(int j = 0; j < banks.size(); j++){
-				p += Double.valueOf(banks.get(j).getFiveYearInterest().replace(",", "."));
+			for (int j = 0; j < banks.size(); j++) {
+				p += Double.valueOf(banks.get(j).getFiveYearInterest()
+						.replace(",", "."));
 			}
-			p = p/banks.size();
+			p = p / banks.size();
 			p = Math.floor(p * 100) / 100;
-			p += 2;
+			p += 100*ADDED_PERCENTAGE;
+			p = p/100;
 		}
 		return p;
 	}
@@ -253,6 +259,8 @@ public class MortgageFragment extends Fragment {
 
 		@Override
 		public void onClick(View v) {
+			final InputMethodManager imm = (InputMethodManager) getActivity().getSystemService(Context.INPUT_METHOD_SERVICE);
+		    imm.hideSoftInputFromWindow(getView().getWindowToken(), 0);
 			calulate();
 		}
 	};
@@ -328,6 +336,7 @@ public class MortgageFragment extends Fragment {
 		fetchValues();
 
 		int leftOverCash = totalIncome - totalCost - CASH_OVER;
+		if(leftOverCash > 0){
 		double maxLoanAmount = (leftOverCash * 12)
 				/ (interest + PAYBACK_PERCENTAGE);
 
@@ -351,6 +360,13 @@ public class MortgageFragment extends Fragment {
 		Log.d("Bolanekollen", "totalBuyPrice: " + totalBuyPrice);
 
 		openResultFragment();
+		} else{
+			alert("Du har fšr lite inkomst. Total inkomst: " + totalIncome +" kr och totala utgift: " + totalCost + " kr.");
+		}
+	}
+
+	private void alert(String s) {
+		Toast.makeText(getActivity(), s, Toast.LENGTH_LONG).show();
 	}
 
 	private void openResultFragment() {
@@ -401,13 +417,19 @@ public class MortgageFragment extends Fragment {
 				.replaceAll("\\D+", ""));
 		totalIncome = income + otherIncome;
 
-		otherCosts = Integer.valueOf(costNewLivingOperatingCostEditText
+		maintenenceCost = Integer.valueOf(costNewLivingOperatingCostEditText
 				.getText().toString().replaceAll("\\D+", ""));
-		maintenenceCost = Integer.valueOf(costNewLivingMonthlyFeeEditText
+		monthlyCost = Integer.valueOf(costNewLivingMonthlyFeeEditText
 				.getText().toString().replaceAll("\\D+", ""));
-		monthlyCost = Integer.valueOf(otherCostsEditText.getText().toString()
+		otherCosts = Integer.valueOf(otherCostsEditText.getText().toString()
 				.replaceAll("\\D+", ""));
-		totalCost = otherCosts + maintenenceCost + monthlyCost;
+		
+		int adultCosts = 0;
+		if(adults == 1)
+			adultCosts = COST_ONE_ADULT;
+		else 
+			adultCosts = COST_TWO_ADULTS;
+		totalCost = otherCosts + maintenenceCost + monthlyCost + adultCosts + children*COST_CHILDREN + cars*COST_CAR + CASH_OVER;
 
 		useMaxCashPayment = useMaxCashPaymentCheckBox.isChecked();
 		if (useMaxCashPayment) {

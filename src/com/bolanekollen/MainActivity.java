@@ -1,11 +1,5 @@
 package com.bolanekollen;
 
-import com.bolanekollen.fragments.BankInterestFragment;
-import com.bolanekollen.fragments.BankLoanCostFragment;
-import com.bolanekollen.fragments.HomeFragment;
-import com.bolanekollen.fragments.MortgageFragment;
-import com.bolanekollen.fragments.PrivateLoanFragment;
-
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.app.FragmentManager;
@@ -13,6 +7,7 @@ import android.app.FragmentTransaction;
 import android.os.Bundle;
 import android.support.v4.app.ActionBarDrawerToggle;
 import android.support.v4.widget.DrawerLayout;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -20,6 +15,14 @@ import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.Toast;
+
+import com.bolanekollen.fragments.BankInterestFragment;
+import com.bolanekollen.fragments.BankLoanCostFragment;
+import com.bolanekollen.fragments.HomeFragment;
+import com.bolanekollen.fragments.MortgageFragment;
+import com.bolanekollen.fragments.PrefsFragment;
+import com.bolanekollen.fragments.PrivateLoanFragment;
 
 public class MainActivity extends Activity {
 
@@ -29,6 +32,7 @@ public class MainActivity extends Activity {
 	BankLoanCostFragment blFragment = new BankLoanCostFragment();
 	BankInterestFragment biFragment = new BankInterestFragment();
 	PrivateLoanFragment plFragment = new PrivateLoanFragment();
+	PrefsFragment pFragment = new PrefsFragment();
 
 	// Within which the entire activity is enclosed
 	private DrawerLayout mDrawerLayout;
@@ -52,8 +56,8 @@ public class MainActivity extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
 
-		//mTitle = "Bolånekollen";
-		//getActionBar().setTitle(mTitle);
+		// mTitle = "Bolånekollen";
+		// getActionBar().setTitle(mTitle);
 
 		// Getting reference to the DrawerLayout
 		mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -67,14 +71,14 @@ public class MainActivity extends Activity {
 
 			/** Called when drawer is closed */
 			public void onDrawerClosed(View view) {
-				//getActionBar().setTitle(mTitle);
+				// getActionBar().setTitle(mTitle);
 				invalidateOptionsMenu();
 
 			}
 
 			/** Called when a drawer is opened */
 			public void onDrawerOpened(View drawerView) {
-				//getActionBar().setTitle(mTitle);
+				// getActionBar().setTitle(mTitle);
 				invalidateOptionsMenu();
 			}
 
@@ -109,7 +113,7 @@ public class MainActivity extends Activity {
 						R.array.menus);
 
 				// Currently selected river
-				//mTitle = menuItems[position];
+				// mTitle = menuItems[position];
 
 				// Creating a fragment object
 				// MortgageFragment rFragment = new MortgageFragment();
@@ -157,7 +161,7 @@ public class MainActivity extends Activity {
 
 				// Closing the drawer
 				mDrawerLayout.closeDrawer(mDrawerList);
-				
+
 			}
 		});
 	}
@@ -166,24 +170,70 @@ public class MainActivity extends Activity {
 	protected void onPostCreate(Bundle savedInstanceState) {
 		super.onPostCreate(savedInstanceState);
 		mDrawerToggle.syncState();
-		
+
+		Log.d("Bolånekollen", "Orientation change!");
+
 		// Getting reference to the FragmentManager
 		FragmentManager fragmentManager = getFragmentManager();
 
 		// Creating a fragment transaction
 		FragmentTransaction ft = fragmentManager.beginTransaction();
 		// Adding a fragment to the fragment transaction
-		ft.replace(R.id.content_frame, hFragment);
-		
+		// ft.replace(R.id.content_frame, hFragment);
+
+		// ft.commit();
+
+		Bundle data = savedInstanceState;
+
+		int position = currentPosition;
+		if (position == 0) {
+			hFragment.setArguments(data);
+
+			// Adding a fragment to the fragment transaction
+			ft.replace(R.id.content_frame, hFragment);
+		} else if (position == 1) {
+			mFragment.setArguments(data);
+
+			// Adding a fragment to the fragment transaction
+			ft.replace(R.id.content_frame, mFragment);
+		} else if (position == 2) {
+			blFragment.setArguments(data);
+
+			// Adding a fragment to the fragment transaction
+			ft.replace(R.id.content_frame, blFragment);
+		} else if (position == 3) {
+			biFragment.setArguments(data);
+
+			// Adding a fragment to the fragment transaction
+			ft.replace(R.id.content_frame, biFragment);
+		} else if (position == 4) {
+			plFragment.setArguments(data);
+
+			// Adding a fragment to the fragment transaction
+			ft.replace(R.id.content_frame, plFragment);
+		}
+		// Committing the transaction
 		ft.commit();
 	}
 
 	@Override
 	public boolean onOptionsItemSelected(MenuItem item) {
+		Toast.makeText(this, "Meny clicked!", Toast.LENGTH_SHORT).show();
 		if (mDrawerToggle.onOptionsItemSelected(item)) {
 			return true;
 		}
+		openSettingsMenu();
 		return super.onOptionsItemSelected(item);
+	}
+
+	private void openSettingsMenu() {
+		
+		FragmentManager fragmentManager = getFragmentManager();
+		// Creating a fragment transaction
+		FragmentTransaction ft = fragmentManager.beginTransaction();
+		ft.replace(R.id.content_frame, pFragment);
+		// Committing the transaction
+		ft.commit();
 	}
 
 	/** Called whenever we call invalidateOptionsMenu() */
@@ -195,12 +245,11 @@ public class MainActivity extends Activity {
 		menu.findItem(R.id.action_settings).setVisible(!drawerOpen);
 		return super.onPrepareOptionsMenu(menu);
 	}
-	
-	
+
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		getMenuInflater().inflate(R.menu.main, menu);
 		return true;
 	}
-	
+
 }
