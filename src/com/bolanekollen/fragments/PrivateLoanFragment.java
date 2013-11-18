@@ -64,8 +64,9 @@ public class PrivateLoanFragment extends Fragment {
 		// Retrieving the currently selected item number
 		int position = getArguments().getInt("position");
 
-		// List of rivers
-		String[] menus = getResources().getStringArray(R.array.menus);
+		// Set app name
+		String app_name = getResources().getString(R.string.app_name);
+		getActivity().getActionBar().setTitle(app_name);
 
 		// Creating view corresponding to the fragment
 		View v = inflater.inflate(R.layout.activity_private_loan_layout,

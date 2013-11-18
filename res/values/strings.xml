@@ -60,7 +60,7 @@
     <string name="costNewLivingOperatingCost">Driftkostnad, kr/mån</string>
     <string name="costNewLivingMonthlyFee">Månadskostnad, kr/mån</string>
     <string name="zeroPrompt">0</string>
-    <string name="submit_button">Beräkna bolån</string>
+    <string name="submit_button">Beräkna bostadspris</string>
     <string name="gotCashPayment">Finns given kontaninsats?</string>
     <string name="cashPaymentUnit">Ange max kontoinsats, kr</string>
     <string name="cashPayment"><u>Kontoinsats</u></string>

@@ -55,12 +55,15 @@ public class BankLoanCostFragment extends Fragment {
 		// Retrieving the currently selected item number
 		int position = getArguments().getInt("position");
 
-		// List of rivers
-		String[] menus = getResources().getStringArray(R.array.menus);
-
+		// Set app name
+		String app_name = getResources().getString(R.string.app_name);
+		getActivity().getActionBar().setTitle(app_name);
+		
 		// Creating view corresponding to the fragment
 		View v = inflater.inflate(R.layout.activity_bankloan_cost_layout, container,
 				false);
+		
+		
 
 		// Assign all elements
 		bankLoanEditText = (EditText) v.findViewById(R.id.bankLoanEditText);
@@ -185,7 +188,7 @@ public class BankLoanCostFragment extends Fragment {
 		bankLoanUpdatedInterestCostTextView
 				.setText(truncate(updatedInterestCost) + " kr/mån");
 		bankLoanResultInterestDifferenceTextView
-				.setText(truncate(diffInterestCost) + "kr");
+				.setText("+" + truncate(diffInterestCost) + " kr");
 	}
 
 	private void addEditBoxChangeListener() {

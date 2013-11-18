@@ -343,6 +343,7 @@
             android:id="@+id/resultButton"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
+            android:background="@color/buttonColor"
             android:onClick="getResult"
             android:padding="@dimen/general_padding"
             android:text="@string/submit_button" >

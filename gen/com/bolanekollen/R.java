@@ -18,7 +18,9 @@ public final class R {
     public static final class attr {
     }
     public static final class color {
+        public static final int altButtonColor=0x7f050001;
         public static final int bgColor=0x7f050000;
+        public static final int buttonColor=0x7f050002;
     }
     public static final class dimen {
         /**  Default screen margins, per the Android Design guidelines. 

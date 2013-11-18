@@ -16,14 +16,14 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:padding="15dp"
-        android:textSize="17sp"
+        android:textSize="16sp"
         android:text="@string/introductionHomePage" />
 
     <TextView
         android:id="@+id/textView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="15sp"
+        android:textSize="16sp"
         android:padding="10dp"
         android:text="Använd menyn för att navigera till bolånekalkylen samt de andra kalkylerna som finns." />
 

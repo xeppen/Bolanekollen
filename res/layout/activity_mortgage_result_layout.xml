@@ -57,8 +57,9 @@
             <Button
                 android:id="@+id/goBackButton"
                 android:layout_width="fill_parent"
+                android:background="@color/buttonColor"
                 android:layout_height="wrap_content"
-                android:text="Gå tillbaka" />
+                android:text="Tillbaka" />
 
         </LinearLayout>
 
