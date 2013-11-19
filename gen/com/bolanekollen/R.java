@@ -63,25 +63,25 @@ public final class R {
         public static final int BankNameTextView=0x7f0b0006;
         public static final int ScrollView01=0x7f0b0030;
         public static final int ScrollView02=0x7f0b000f;
-        public static final int TipsTrixHeadline=0x7f0b0092;
-        public static final int TipsTrixHeadlineTextView=0x7f0b0093;
-        public static final int Tips_1_Content=0x7f0b0098;
-        public static final int Tips_1_Row=0x7f0b0096;
-        public static final int Tips_1_View=0x7f0b0097;
-        public static final int Tips_2_Content=0x7f0b009b;
-        public static final int Tips_2_Row=0x7f0b0099;
-        public static final int Tips_2_View=0x7f0b009a;
-        public static final int Tips_3_Content=0x7f0b009e;
-        public static final int Tips_3_Row=0x7f0b009c;
-        public static final int Tips_3_View=0x7f0b009d;
-        public static final int Tips_4_Content=0x7f0b00a1;
-        public static final int Tips_4_Row=0x7f0b009f;
-        public static final int Tips_4_View=0x7f0b00a0;
-        public static final int Tips_5_Content=0x7f0b00a4;
-        public static final int Tips_5_Row=0x7f0b00a2;
-        public static final int Tips_5_View=0x7f0b00a3;
+        public static final int TipsTrixHeadline=0x7f0b0095;
+        public static final int TipsTrixHeadlineTextView=0x7f0b0096;
+        public static final int Tips_1_Content=0x7f0b009b;
+        public static final int Tips_1_Row=0x7f0b0099;
+        public static final int Tips_1_View=0x7f0b009a;
+        public static final int Tips_2_Content=0x7f0b009e;
+        public static final int Tips_2_Row=0x7f0b009c;
+        public static final int Tips_2_View=0x7f0b009d;
+        public static final int Tips_3_Content=0x7f0b00a1;
+        public static final int Tips_3_Row=0x7f0b009f;
+        public static final int Tips_3_View=0x7f0b00a0;
+        public static final int Tips_4_Content=0x7f0b00a4;
+        public static final int Tips_4_Row=0x7f0b00a2;
+        public static final int Tips_4_View=0x7f0b00a3;
+        public static final int Tips_5_Content=0x7f0b00a7;
+        public static final int Tips_5_Row=0x7f0b00a5;
+        public static final int Tips_5_View=0x7f0b00a6;
         public static final int View01=0x7f0b0031;
-        public static final int action_settings=0x7f0b00a5;
+        public static final int action_settings=0x7f0b00a8;
         public static final int amortSpinner=0x7f0b006e;
         public static final int amountRow=0x7f0b0060;
         public static final int bankInterestList=0x7f0b000c;
@@ -96,12 +96,15 @@ public final class R {
         public static final int bankLoanDialog3ContentTextView=0x7f0b0084;
         public static final int bankLoanDialog4ContentRow=0x7f0b0087;
         public static final int bankLoanDialog4ContentTextView=0x7f0b0088;
+        public static final int bankLoanDialog5ContentRow=0x7f0b008a;
+        public static final int bankLoanDialog5ContentTextView=0x7f0b008b;
         public static final int bankLoanDialogHeadline2Row=0x7f0b007d;
         public static final int bankLoanDialogHeadline2TextView=0x7f0b007e;
         public static final int bankLoanDialogHeadline3Row=0x7f0b0081;
         public static final int bankLoanDialogHeadline3TextView=0x7f0b0082;
         public static final int bankLoanDialogHeadline4Row=0x7f0b0085;
         public static final int bankLoanDialogHeadline4TextView=0x7f0b0086;
+        public static final int bankLoanDialogHeadline5TextView=0x7f0b0089;
         public static final int bankLoanDialogHeadlineRow=0x7f0b0079;
         public static final int bankLoanDialogHeadlineTextView=0x7f0b007a;
         public static final int bankLoanEditText=0x7f0b0014;
@@ -161,14 +164,14 @@ public final class R {
         public static final int interestChangeSeekBar=0x7f0b001e;
         public static final int interestChangeSpinnerRow=0x7f0b001d;
         public static final int interestChangeTextView=0x7f0b001b;
-        public static final int interestDialog1ContentRow=0x7f0b008b;
-        public static final int interestDialog1ContentTextView=0x7f0b008c;
-        public static final int interestDialog2ContentRow=0x7f0b008f;
-        public static final int interestDialog2ContentTextView=0x7f0b0090;
-        public static final int interestDialogHeadline2Row=0x7f0b008d;
-        public static final int interestDialogHeadline2TextView=0x7f0b008e;
-        public static final int interestDialogHeadlineRow=0x7f0b0089;
-        public static final int interestDialogHeadlineTextView=0x7f0b008a;
+        public static final int interestDialog1ContentRow=0x7f0b008e;
+        public static final int interestDialog1ContentTextView=0x7f0b008f;
+        public static final int interestDialog2ContentRow=0x7f0b0092;
+        public static final int interestDialog2ContentTextView=0x7f0b0093;
+        public static final int interestDialogHeadline2Row=0x7f0b0090;
+        public static final int interestDialogHeadline2TextView=0x7f0b0091;
+        public static final int interestDialogHeadlineRow=0x7f0b008c;
+        public static final int interestDialogHeadlineTextView=0x7f0b008d;
         public static final int interestEditText=0x7f0b0066;
         public static final int interestRow=0x7f0b0064;
         public static final int interestTextView=0x7f0b0065;
@@ -209,11 +212,11 @@ public final class R {
         public static final int resultTextView=0x7f0b005a;
         public static final int textView1=0x7f0b002b;
         public static final int textView2=0x7f0b002c;
-        public static final int tipsIntroduction=0x7f0b0095;
-        public static final int tipsIntroductionRow=0x7f0b0094;
+        public static final int tipsIntroduction=0x7f0b0098;
+        public static final int tipsIntroductionRow=0x7f0b0097;
         public static final int updatedInterestChangeTextView=0x7f0b001c;
         public static final int useMaxCashPaymentCheckBox=0x7f0b0054;
-        public static final int webView=0x7f0b0091;
+        public static final int webView=0x7f0b0094;
     }
     public static final class layout {
         public static final int activity_bank_interest_layout=0x7f030000;
@@ -243,9 +246,9 @@ public final class R {
         public static final int BankInterest5TextView=0x7f080039;
         public static final int BankLoanHeadlineTextView=0x7f080047;
         public static final int BankNameTextView=0x7f080034;
-        public static final int Tips_1_View=0x7f080057;
+        public static final int Tips_1_View=0x7f080059;
         public static final int action_settings=0x7f080001;
-        public static final int added_percentage=0x7f08005f;
+        public static final int added_percentage=0x7f080061;
         public static final int amortAmountTextView=0x7f08000a;
         public static final int amortCurrencyTextView=0x7f08000b;
         public static final int amortHintEditText=0x7f080012;
@@ -260,9 +263,11 @@ public final class R {
         public static final int bankLoanDialog2ContentTextView=0x7f08004b;
         public static final int bankLoanDialog3ContentTextView=0x7f08004d;
         public static final int bankLoanDialog4ContentTextView=0x7f08004f;
+        public static final int bankLoanDialog5ContentTextView=0x7f080051;
         public static final int bankLoanDialogHeadline2TextView=0x7f08004a;
         public static final int bankLoanDialogHeadline3TextView=0x7f08004c;
         public static final int bankLoanDialogHeadline4TextView=0x7f08004e;
+        public static final int bankLoanDialogHeadline5TextView=0x7f080050;
         /**  Bankloan dialog 
          */
         public static final int bankLoanDialogHeadlineTextView=0x7f080048;
@@ -280,16 +285,16 @@ public final class R {
         public static final int calculateButtonText=0x7f080013;
         public static final int cashPayment=0x7f08002f;
         public static final int cashPaymentUnit=0x7f08002e;
-        public static final int cash_over=0x7f08005d;
+        public static final int cash_over=0x7f08005f;
         public static final int costNewLiving=0x7f080028;
         public static final int costNewLivingMonthlyFee=0x7f08002a;
         public static final int costNewLivingOperatingCost=0x7f080029;
-        public static final int cost_car=0x7f08005b;
-        public static final int cost_children=0x7f08005c;
+        public static final int cost_car=0x7f08005d;
+        public static final int cost_children=0x7f08005e;
         /**  Schablon values 
          */
-        public static final int cost_one_adult=0x7f080059;
-        public static final int cost_two_adults=0x7f08005a;
+        public static final int cost_one_adult=0x7f08005b;
+        public static final int cost_two_adults=0x7f08005c;
         public static final int costs=0x7f080030;
         public static final int drawer_close=0x7f080003;
         public static final int drawer_open=0x7f080002;
@@ -308,29 +313,29 @@ public final class R {
          */
         public static final int infoBankInteretTextView=0x7f080033;
         public static final int interestChangeTextView=0x7f080041;
-        public static final int interestDialog1ContentTextView=0x7f080051;
-        public static final int interestDialog2ContentTextView=0x7f080053;
-        public static final int interestDialogHeadline2TextView=0x7f080052;
+        public static final int interestDialog1ContentTextView=0x7f080053;
+        public static final int interestDialog2ContentTextView=0x7f080055;
+        public static final int interestDialogHeadline2TextView=0x7f080054;
         /**  Private loan dialog 
          */
-        public static final int interestDialogHeadlineTextView=0x7f080050;
+        public static final int interestDialogHeadlineTextView=0x7f080052;
         public static final int interestEditText=0x7f080010;
         public static final int interestTextView=0x7f08000f;
         public static final int interestUnitTextView=0x7f080011;
         /**  Home page 
          */
-        public static final int introductionHomePage=0x7f080058;
+        public static final int introductionHomePage=0x7f08005a;
         public static final int loanCurrencyTextView=0x7f080006;
         public static final int loanHintEditText=0x7f080007;
         /**  Interest strings 
          */
         public static final int loanTextView=0x7f080005;
-        public static final int mortgageResultUnit=0x7f080055;
+        public static final int mortgageResultUnit=0x7f080057;
         public static final int otherCostsEditText=0x7f080032;
         public static final int otherCostsTextView=0x7f080031;
         public static final int otherLoans=0x7f080026;
         public static final int otherLoansCost=0x7f080027;
-        public static final int payback_percentage=0x7f08005e;
+        public static final int payback_percentage=0x7f080060;
         public static final int privateLoanEffectiveInterest=0x7f080019;
         public static final int privateLoanEffectiveInterestEditTextView=0x7f08001c;
         public static final int privateLoanPayback=0x7f080017;
@@ -344,11 +349,11 @@ public final class R {
         public static final int repayTimeTextView=0x7f08000c;
         /**  Mortage loan result 
          */
-        public static final int resultTextView=0x7f080054;
+        public static final int resultTextView=0x7f080056;
         public static final int submit_button=0x7f08002c;
         /**  Tips and trix 
          */
-        public static final int tipsIntroduction=0x7f080056;
+        public static final int tipsIntroduction=0x7f080058;
         public static final int title_activity_test_fragment=0x7f080004;
         public static final int updatedInterestChangeTextView=0x7f080046;
         public static final int zeroPrompt=0x7f08002b;
