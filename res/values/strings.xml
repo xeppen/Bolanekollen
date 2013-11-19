@@ -101,7 +101,9 @@
     <string name="bankLoanDialog3ContentTextView" formatted="false">Tänk också på att du med ett bolån idag max får låna 85% av bostadens värde. Resten av beloppet måste du lägga in kontant. En del banker har även krav på att du måste amortera om du lånar över 75% av bostadens värde. I kalkylen så är 1%; årlig amortering inräknad.</string>
     <string name="bankLoanDialogHeadline4TextView">Schablonbelopp i kalkylen</string>
     <string name="bankLoanDialog4ContentTextView">För att förenkla bolåneberäkningen så har ett antal schablonbelopp använts för att uppskatta kostnaden. Levnadsomkostnaden för en vuxen uppskattas till 7200 kr samt 11 000 kr för två vuxna. Varje barn uppskattas kosta 2500 kr och varje bil 3000 kr. Utöver alla levnadsomkostnader så bör en familj ha kvar minst 4000 kr i fickpengar/sparande/övriga kostnader per månad.</string>
-
+	<string name="bankLoanDialogHeadline5TextView">Beräkningen av bostadspriset</string>
+	<string name="bankLoanDialog5ContentTextView">Denna beräkning använder de inkomster och utgifter du angett, tillsammans med en del schablonbelopp, för att beräkna ungefär hur mycket du har över varje månad för räntekostnader och amortering av ett bostadslån. Denna summa används sedan tillsammans med bankernas femårsränta plus två procentenheter, för att beräkna ungefär hur mycket du får låna. Utifrån detta lånebelopp beräknas vilken kontantinsats som behövs, vilket tillsammans med lånebeloppet ger dig ett ungefärligt belopp på vad din blivande bostad kan kosta.</string>
+    
     <!-- Private loan dialog -->
     <string name="interestDialogHeadlineTextView">Rak amortering</string>
     <string name="interestDialog1ContentTextView">Rak amortering innebär att du betala tillbaka lånet med ett lika stort belopp vid varje amorteringstillfälle. Utöver amorteringen betalar du ränta på lånet. Rak amortering används så gott som alltid vid bostadslån.</string>

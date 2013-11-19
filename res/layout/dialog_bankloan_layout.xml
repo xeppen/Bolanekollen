@@ -153,6 +153,41 @@
                     android:textSize="@dimen/textSize" >
                 </TextView>
             </LinearLayout>
+            
+            <LinearLayout
+                android:id="@+id/bankLoanDialogHeadline4Row"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:orientation="horizontal"
+                android:padding="@dimen/general_padding" >
+
+                <TextView
+                    android:id="@+id/bankLoanDialogHeadline5TextView"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="3"
+                    android:text="@string/bankLoanDialogHeadline5TextView"
+                    android:textSize="@dimen/textSize"
+                    android:textStyle="bold" >
+                </TextView>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/bankLoanDialog5ContentRow"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:orientation="horizontal"
+                android:padding="@dimen/general_padding" >
+
+                <TextView
+                    android:id="@+id/bankLoanDialog5ContentTextView"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="3"
+                    android:text="@string/bankLoanDialog5ContentTextView"
+                    android:textSize="@dimen/textSize" >
+                </TextView>
+            </LinearLayout>
         </LinearLayout>
     </ScrollView>
 
