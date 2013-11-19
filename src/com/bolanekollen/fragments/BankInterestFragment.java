@@ -332,10 +332,6 @@ public class BankInterestFragment extends Fragment {
 				final String url = b.getBankUrl();
 				Log.d("Bolanekollen", "url: " + url);
 				
-				Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
-				startActivity(browserIntent);
-				
-				/*
 				AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(
 						getActivity());
 
@@ -343,7 +339,9 @@ public class BankInterestFragment extends Fragment {
 				alertDialogBuilder.setTitle("Öppna länk?");
 
 				// set dialog message
-				alertDialogBuilder.setCancelable(false)
+				alertDialogBuilder
+						.setCancelable(false)
+						.setMessage("Vill du gå till \n" + url + "?")
 						.setPositiveButton("Öppna",
 						new DialogInterface.OnClickListener() {
 							public void onClick(DialogInterface dialog, int id) {
@@ -365,7 +363,8 @@ public class BankInterestFragment extends Fragment {
 
 				// create alert dialog
 				AlertDialog alertDialog = alertDialogBuilder.create();
-
+				
+				/*
 				// show it
 				LayoutInflater inflater = alertDialog.getLayoutInflater();
 				View dialoglayout = inflater.inflate(
@@ -375,10 +374,8 @@ public class BankInterestFragment extends Fragment {
 				TextView urlTV = (TextView) dialoglayout.findViewById(R.id.openURLTextView);
 				urlTV.setText(url);
 				
-				alertDialog.setView(dialoglayout);
+				alertDialog.setView(dialoglayout);*/
 				alertDialog.show();
-				
-				*/
 				
 			}
 		});
