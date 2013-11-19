@@ -6,6 +6,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.bolanekollen.R;
+import com.bolanekollen.util.Result;
+import com.bolanekollen.util.ResultCalculationAdapter;
 
 import android.app.Fragment;
 import android.app.FragmentManager;
@@ -25,7 +27,7 @@ public class MortgageResultFragment extends Fragment {
 
 	ListView resultListView;
 
-	List<String> results = new ArrayList<String>();
+	List<Result> results = new ArrayList<Result>();
 	// Define usable variables
 	int adults = 1;
 	int children = 0;
@@ -46,7 +48,7 @@ public class MortgageResultFragment extends Fragment {
 	double totalBuyPrice = 0;
 	double cashPayment = 0;
 	int leftOverCash = 0;
-	ArrayAdapter arrayAdapter;
+	ResultCalculationAdapter arrayAdapter;
 
 	// Define static values
 	static final Integer COST_ONE_ADULT = 7200;
@@ -94,7 +96,7 @@ public class MortgageResultFragment extends Fragment {
 		mortgageResult.setText(prettifyString2(String.valueOf(maxBuyPrice))
 				+ " kr");
 		
-		arrayAdapter = new ArrayAdapter(getActivity(), android.R.layout.simple_list_item_1, results);
+		arrayAdapter = new ResultCalculationAdapter(getActivity(), R.layout.mortgage_result_row, results);
 		resultListView.setAdapter(arrayAdapter);
 		
 		goBackButton.setOnClickListener(new OnClickListener() {
@@ -147,32 +149,32 @@ public class MortgageResultFragment extends Fragment {
 		if(income == 0){
 			Log.d("Bolanekollen", "Something wrong, income can't be 0!");
 		} else
-			results.add("Inkomst " + income + " kr");
+			results.add(new Result("Inkomst", "+"+income + " kr"));
 		
 		if(otherIncome != 0)
-			results.add("Annan inkomst " + otherIncome + " kr");
+			results.add(new Result("Annan inkomst ", "+"+otherIncome + " kr"));
 			
 		// Costs
 		if(otherCosts != 0)
-			results.add("Andra lånekostnader -" + otherCosts + " kr");	
+			results.add(new Result("Andra lånekostnader", "-"+otherCosts + " kr"));
 		if(maintenenceCost != 0)
-			results.add("Driftkostnader -" + maintenenceCost + " kr");
+			results.add(new Result("Driftkostnader", "-"+maintenenceCost + " kr"));
 		if(monthlyCost != 0)
-			results.add("Månadskostnad -" + monthlyCost + " kr");
+			results.add(new Result("Månadskostnad", "-"+income + " kr"));
 			
 		// Adults
 		if(adults == 1)
-			results.add("1 vuxen -" + COST_ONE_ADULT + " kr");
+			results.add(new Result("1 vuxen", "-"+COST_ONE_ADULT + " kr"));
 		else
-			results.add("2 vuxna -" + COST_TWO_ADULTS + " kr");
+			results.add(new Result("2 vuxna", "-"+COST_TWO_ADULTS + " kr"));
 		// Children
 		if(children != 0)
-			results.add(children + " barn -" + children*COST_CHILDREN + " kr");
+			results.add(new Result(children + " barn", "-"+children*COST_CHILDREN + " kr"));
 		// Cars
 		if(cars == 1)
-			results.add(cars + " bil -" + COST_CAR + " kr");
+			results.add(new Result(cars + " bil", "-"+cars*COST_CAR + " kr"));
 		else if(cars > 1)
-			results.add(cars + " bilar -" + cars*COST_CAR + " kr");
+			results.add(new Result(cars + " bilar", "-"+cars*COST_CAR + " kr"));
 	}
 
 	private static String prettifyString(Integer i) {
