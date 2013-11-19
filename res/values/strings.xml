@@ -61,8 +61,8 @@
     <string name="zeroPrompt">0</string>
     <string name="submit_button">Beräkna bostadspris</string>
     <string name="gotCashPayment">Finns given kontaninsats?</string>
-    <string name="cashPaymentUnit">Ange max kontoinsats, kr</string>
-    <string name="cashPayment"><u>Kontoinsats</u></string>
+    <string name="cashPaymentUnit">Ange max kontantinsats, kr</string>
+    <string name="cashPayment"><u>Kontantinsats</u></string>
     <string name="costs"><u>Andra privat- och studentlån</u></string>
     <string name="otherCostsTextView">Kostnad, kr/mån</string>
     <string name="otherCostsEditText">0</string>
@@ -119,7 +119,7 @@
     <string name="Tips_1_View">...</string>
 
     <!-- Home page -->
-    <string name="introductionHomePage">Att köpa en egen bostad är för de flesta av oss ett stort och betydelsebullt steg i livet. Ofta handlar affären om mycket pengar och det påverkar hela familjens ekonomi under en lång tid. Med denna app så vill vi hjälpa dig att räkna på ungefär hur dyr bostad er ekonomi klarar samt hur en ändring av till exempel räntan kommer påverka. Vid bostadsköp idag så krävs för det mesta en kontantinsats på minst 15 % av bostadens köpebelopp och för många så kan ett privatlån behövas för att täcka denna del. För att räkna på hur mycket ett privatlån skulle kosta för just dig använd vår privatlånskalkyl i menyn.</string>
+    <string name="introductionHomePage">Att köpa en egen bostad är för de flesta av oss ett stort och betydelsefullt steg i livet. Ofta handlar affären om mycket pengar och det påverkar hela familjens ekonomi under en lång tid. Med denna app så vill vi hjälpa dig att räkna på ungefär hur mycket du bör kunna låna till en ny bostad samt hur din ekonomi klarar samt hur en ändring av till exempel räntan kommer påverka. Vid bostadsköp idag så krävs för det mesta en kontantinsats på minst 15 % av bostadens köpebelopp och för många så kan ett privatlån behövas för att täcka denna del. För att räkna på hur mycket ett privatlån skulle kosta för just dig använd vår privatlånskalkyl i menyn.</string>
 
     <!-- Schablon values -->
     <string name="cost_one_adult">7200</string>

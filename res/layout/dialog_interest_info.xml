@@ -17,21 +17,19 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="3"
-            android:text="@string/interestDialogHeadlineTextView"
-            android:textSize="@dimen/textSize"
-            android:textStyle="bold" >
+            android:text="@string/interestDialogHeadlineTextView" >
         </TextView>
     </LinearLayout>
 
     <LinearLayout
-        android:id="@+id/interestDialog1ContentRow"
+        android:id="@+id/openURL"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
         android:orientation="horizontal"
         android:padding="@dimen/general_padding" >
 
         <TextView
-            android:id="@+id/interestDialog1ContentTextView"
+            android:id="@+id/openURLTextView"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="3"
@@ -40,39 +38,6 @@
         </TextView>
     </LinearLayout>
 
-    <LinearLayout
-        android:id="@+id/interestDialogHeadline2Row"
-        android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
-        android:orientation="horizontal"
-        android:padding="@dimen/general_padding" >
-
-        <TextView
-            android:id="@+id/interestDialogHeadline2TextView"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="3"
-            android:text="@string/interestDialogHeadline2TextView"
-            android:textSize="@dimen/textSize"
-            android:textStyle="bold" >
-        </TextView>
-    </LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/interestDialog2ContentRow"
-        android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
-        android:orientation="horizontal"
-        android:padding="@dimen/general_padding" >
-
-        <TextView
-            android:id="@+id/interestDialog2ContentTextView"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="3"
-            android:text="@string/interestDialog2ContentTextView"
-            android:textSize="@dimen/textSize" >
-        </TextView>
-    </LinearLayout>
+    
 
 </LinearLayout>

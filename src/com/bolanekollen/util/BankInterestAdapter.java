@@ -73,5 +73,4 @@ public class BankInterestAdapter extends ArrayAdapter<Bank> {
 		// TODO Auto-generated method stub
 		return objects.get(position);
 	}
-
 }

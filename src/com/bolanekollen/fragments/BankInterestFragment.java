@@ -24,12 +24,16 @@ import org.w3c.dom.NodeList;
 import org.xml.sax.InputSource;
 import org.xml.sax.SAXException;
 
+import android.app.AlertDialog;
 import android.app.Fragment;
 import android.content.Context;
+import android.content.DialogInterface;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.SharedPreferences.Editor;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
+import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
@@ -37,6 +41,8 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -316,6 +322,66 @@ public class BankInterestFragment extends Fragment {
 				banks);
 		bankList.setAdapter(adapter);
 		adapter.notifyDataSetChanged();
+		
+		bankList.setOnItemClickListener(new OnItemClickListener() {
+
+			@Override
+			public void onItemClick(AdapterView<?> arg0, View arg1, int position,
+					long arg3) {
+				Bank b = banks.get(position);
+				final String url = b.getBankUrl();
+				Log.d("Bolanekollen", "url: " + url);
+				
+				Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
+				startActivity(browserIntent);
+				
+				/*
+				AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(
+						getActivity());
+
+				// set title
+				alertDialogBuilder.setTitle("Öppna länk?");
+
+				// set dialog message
+				alertDialogBuilder.setCancelable(false)
+						.setPositiveButton("Öppna",
+						new DialogInterface.OnClickListener() {
+							public void onClick(DialogInterface dialog, int id) {
+								// if this button is clicked, close
+								// current activity
+								dialog.cancel();
+								Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
+								startActivity(browserIntent);
+							}
+						})
+						.setNegativeButton("Stäng",
+						new DialogInterface.OnClickListener() {
+							public void onClick(DialogInterface dialog, int id) {
+								// if this button is clicked, close
+								// current activity
+								dialog.cancel();
+							}
+						});
+
+				// create alert dialog
+				AlertDialog alertDialog = alertDialogBuilder.create();
+
+				// show it
+				LayoutInflater inflater = alertDialog.getLayoutInflater();
+				View dialoglayout = inflater.inflate(
+						R.layout.dialog_open_browser_question,
+						(ViewGroup) alertDialog.getCurrentFocus());
+				
+				TextView urlTV = (TextView) dialoglayout.findViewById(R.id.openURLTextView);
+				urlTV.setText(url);
+				
+				alertDialog.setView(dialoglayout);
+				alertDialog.show();
+				
+				*/
+				
+			}
+		});
 	}
 
 	public boolean isNetworkAvailable(Context context) {

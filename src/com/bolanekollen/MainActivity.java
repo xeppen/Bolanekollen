@@ -113,12 +113,6 @@ public class MainActivity extends Activity {
 				String[] menuItems = getResources().getStringArray(
 						R.array.menus);
 
-				// Currently selected river
-				// mTitle = menuItems[position];
-
-				// Creating a fragment object
-				// MortgageFragment rFragment = new MortgageFragment();
-
 				// Getting reference to the FragmentManager
 				FragmentManager fragmentManager = getFragmentManager();
 
