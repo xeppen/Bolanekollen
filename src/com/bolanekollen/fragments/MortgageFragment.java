@@ -84,6 +84,9 @@ public class MortgageFragment extends Fragment {
 	double interest = 0.06;
 	double totalBuyPrice = 0;
 	double cashPayment = 0;
+	int leftOverCash = 0;
+	
+	boolean debug = true;
 
 	// Define static values
 	static final Integer COST_ONE_ADULT = 7200;
@@ -180,7 +183,6 @@ public class MortgageFragment extends Fragment {
 	}
 
 	private void setStartValues() {
-		boolean debug = false;
 		if (debug) {
 			incomeSalaryEditText.setText(prettifyString2("50000"));
 			incomeOtherEditText.setText(prettifyString2("1000"));
@@ -335,7 +337,7 @@ public class MortgageFragment extends Fragment {
 	protected void calulate() {
 		fetchValues();
 
-		int leftOverCash = totalIncome - totalCost - CASH_OVER;
+		leftOverCash = totalIncome - totalCost - CASH_OVER;
 		if(leftOverCash > 0){
 		double maxLoanAmount = (leftOverCash * 12)
 				/ (interest + PAYBACK_PERCENTAGE);
@@ -388,6 +390,7 @@ public class MortgageFragment extends Fragment {
 		data.putDouble("interest", interest);
 		data.putInt("totalBuyPrice", (int) truncate(truncate(totalBuyPrice)));
 		data.putInt("cashPayment", (int) truncate(truncate(cashPayment)));
+		data.putInt("leftOverCash", leftOverCash);
 
 		MortgageResultFragment mrFragment = new MortgageResultFragment();
 

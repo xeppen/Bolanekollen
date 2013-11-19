@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:background="@color/bgColor"
-    android:layout_height="match_parent" >
+    android:layout_height="match_parent"
+    android:background="@color/bgColor" >
 
     <LinearLayout
         android:id="@+id/result"
@@ -22,8 +22,8 @@
         <LinearLayout
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
             android:layout_gravity="center_horizontal|center_vertical"
+            android:orientation="horizontal"
             android:padding="@dimen/tighter_padding" >
 
             <TextView
@@ -33,7 +33,7 @@
                 android:textSize="22sp" >
             </TextView>
         </LinearLayout>
-        
+
         <LinearLayout
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
@@ -46,8 +46,20 @@
                 android:text="@string/mortgageResultUnit"
                 android:textSize="@dimen/textSize" >
             </TextView>
-
         </LinearLayout>
+
+        <View
+            android:layout_width="fill_parent"
+            android:layout_height="1dp"
+            android:background="@android:color/darker_gray" />
+
+        <ListView
+            android:id="@+id/resultListView"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:divider="@android:color/transparent"
+            android:dividerHeight="2.0sp" >
+        </ListView>
 
         <LinearLayout
             android:layout_width="fill_parent"
@@ -57,12 +69,10 @@
             <Button
                 android:id="@+id/goBackButton"
                 android:layout_width="fill_parent"
-                android:background="@color/buttonColor"
                 android:layout_height="wrap_content"
+                android:background="@color/buttonColor"
                 android:text="Tillbaka" />
-
         </LinearLayout>
-
     </LinearLayout>
 
 </RelativeLayout>
