@@ -25,9 +25,14 @@ import android.widget.TextView;
 
 public class MortgageResultFragment extends Fragment {
 
-	ListView resultListView;
+	ListView resultIncomeListView;
+	ListView resultCostListView;
+	TextView resultTotalTextView;
+	TextView resultOther;
 
-	List<Result> results = new ArrayList<Result>();
+	List<Result> resultIncome = new ArrayList<Result>();
+	List<Result> resultCosts = new ArrayList<Result>();
+
 	// Define usable variables
 	int adults = 1;
 	int children = 0;
@@ -48,7 +53,8 @@ public class MortgageResultFragment extends Fragment {
 	double totalBuyPrice = 0;
 	double cashPayment = 0;
 	int leftOverCash = 0;
-	ResultCalculationAdapter arrayAdapter;
+	ResultCalculationAdapter arrayAdapterIncome;
+	ResultCalculationAdapter arrayAdapterCost;
 
 	// Define static values
 	static final Integer COST_ONE_ADULT = 7200;
@@ -81,11 +87,19 @@ public class MortgageResultFragment extends Fragment {
 		View v = inflater.inflate(R.layout.activity_mortgage_result_layout,
 				container, false);
 
-		// Fetch results
-		assignResultValues(bundle);
+		
 
 		// Assign elements
-		resultListView = (ListView) v.findViewById(R.id.resultListView);
+		resultIncomeListView = (ListView) v
+				.findViewById(R.id.resultIncomeListView);
+		resultCostListView = (ListView) v
+				.findViewById(R.id.resultCostListView);
+		resultTotalTextView = (TextView) v.findViewById(R.id.resultTotalTextView);
+		resultOther = (TextView) v.findViewById(R.id.resultOther);
+		
+		// Fetch results
+		assignResultValues(bundle);
+		
 		TextView mortgageResult = (TextView) v
 				.findViewById(R.id.mortgageResult);
 		Button goBackButton = (Button) v.findViewById(R.id.goBackButton);
@@ -95,10 +109,15 @@ public class MortgageResultFragment extends Fragment {
 				+ prettifyString(cashPayment) + " kr (" + percentage + "%)");
 		mortgageResult.setText(prettifyString2(String.valueOf(maxBuyPrice))
 				+ " kr");
+
+		arrayAdapterIncome = new ResultCalculationAdapter(getActivity(),
+				R.layout.mortgage_result_row, resultIncome);
+		resultIncomeListView.setAdapter(arrayAdapterIncome);
 		
-		arrayAdapter = new ResultCalculationAdapter(getActivity(), R.layout.mortgage_result_row, results);
-		resultListView.setAdapter(arrayAdapter);
-		
+		arrayAdapterCost = new ResultCalculationAdapter(getActivity(),
+				R.layout.mortgage_result_row, resultCosts);
+		resultCostListView.setAdapter(arrayAdapterCost);
+
 		goBackButton.setOnClickListener(new OnClickListener() {
 
 			@Override
@@ -123,7 +142,11 @@ public class MortgageResultFragment extends Fragment {
 	}
 
 	private void assignResultValues(Bundle data) {
-
+		
+		// Clear from old data
+		resultIncome.clear();
+		resultCosts.clear();
+		
 		adults = data.getInt("adults", 1);
 		children = data.getInt("children", 0);
 		cars = data.getInt("cars", 0);
@@ -139,42 +162,55 @@ public class MortgageResultFragment extends Fragment {
 
 		useMaxCashPayment = data.getBoolean("useMaxCashPayment", false);
 		maxCashPayment = data.getInt("maxCashPayment", 0);
-		interest = data.getDouble("interest", 0.07);
+		interest = data.getDouble("interest", 0.06);
 		totalBuyPrice = (double) data.getInt("totalBuyPrice", 0);
 		cashPayment = (double) data.getInt("cashPayment", 0);
 		leftOverCash = data.getInt("leftOverCash", 0);
-		
+		int maxLoan = (int) (totalBuyPrice - cashPayment);
+
 		// Income
-		
-		if(income == 0){
+		if (income == 0) {
 			Log.d("Bolanekollen", "Something wrong, income can't be 0!");
 		} else
-			results.add(new Result("Inkomst", "+"+income + " kr"));
-		
-		if(otherIncome != 0)
-			results.add(new Result("Annan inkomst ", "+"+otherIncome + " kr"));
-			
+			resultIncome.add(new Result("Inkomst", "+ "
+					+ prettifyString(income) + " kr", false));
+
+		if (otherIncome != 0)
+			resultIncome.add(new Result("Annan inkomst ", "+ "
+					+ prettifyString(otherIncome) + " kr", false));
+
 		// Costs
-		if(otherCosts != 0)
-			results.add(new Result("Andra lÂnekostnader", "-"+otherCosts + " kr"));
-		if(maintenenceCost != 0)
-			results.add(new Result("Driftkostnader", "-"+maintenenceCost + " kr"));
-		if(monthlyCost != 0)
-			results.add(new Result("MÂnadskostnad", "-"+income + " kr"));
-			
+		if (otherCosts != 0)
+			resultCosts.add(new Result("Andra lånekostnader", "- "
+					+ prettifyString(otherCosts) + " kr", false));
+		if (maintenenceCost != 0)
+			resultCosts.add(new Result("Driftkostnader", "- "
+					+ prettifyString(maintenenceCost) + " kr", false));
+		if (monthlyCost != 0)
+			resultCosts.add(new Result("Månadskostnad", "- "
+					+ prettifyString(monthlyCost) + " kr", false));
+
 		// Adults
-		if(adults == 1)
-			results.add(new Result("1 vuxen", "-"+COST_ONE_ADULT + " kr"));
+		if (adults == 1)
+			resultCosts.add(new Result("Levnadsomkostnad - en vuxen", "- "
+					+ prettifyString(COST_ONE_ADULT) + " kr", false));
 		else
-			results.add(new Result("2 vuxna", "-"+COST_TWO_ADULTS + " kr"));
+			resultCosts.add(new Result("Levnadsomkostnad - två vuxna", "- "
+					+ prettifyString(COST_TWO_ADULTS) + " kr", false));
 		// Children
-		if(children != 0)
-			results.add(new Result(children + " barn", "-"+children*COST_CHILDREN + " kr"));
+		if (children != 0)
+			resultCosts.add(new Result("Kostnad för " + children + " barn", "- "
+					+ prettifyString(children * COST_CHILDREN) + " kr", false));
 		// Cars
-		if(cars == 1)
-			results.add(new Result(cars + " bil", "-"+cars*COST_CAR + " kr"));
-		else if(cars > 1)
-			results.add(new Result(cars + " bilar", "-"+cars*COST_CAR + " kr"));
+		if (cars == 1)
+			resultCosts.add(new Result("Kostnad för " + cars + " bil", "- "
+					+ prettifyString(cars * COST_CAR) + " kr", false));
+		else if (cars > 1)
+			resultCosts.add(new Result("Kostnad för " + cars + " bilar", "- "
+					+ prettifyString(cars * COST_CAR) + " kr", false));
+		
+		resultTotalTextView.setText("+ " + prettifyString(leftOverCash) + " kr");
+		resultOther.setText("Med " + PAYBACK_PERCENTAGE*100 + " % i årlig amortering och med en årlig ränta på " + interest*100 + " % så bör du/ni kunna låna ca\n "+ prettifyString(maxLoan) + " kr.");
 	}
 
 	private static String prettifyString(Integer i) {

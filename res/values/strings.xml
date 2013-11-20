@@ -113,6 +113,10 @@
     <!-- Mortage loan result -->
     <string name="resultTextView">Du/ni borde kunna köpa bostad för ungefär</string>
     <string name="mortgageResultUnit">varav kontantinsats: 0 kr (0 %)</string>
+    <string name="resultIncome"><b>Totala inkomster per månad</b></string>
+    <string name="resultCost"><b>Total kostnader per månad</b></string>
+    <string name="resultTotal"><b>Summa över per månad</b></string>
+    <string name="resultTotalTextView">+ 7 000 kr</string>
 
     <!-- Tips and trix -->
     <string name="tipsIntroduction">...</string>
