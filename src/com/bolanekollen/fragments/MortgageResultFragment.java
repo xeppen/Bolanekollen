@@ -209,8 +209,16 @@ public class MortgageResultFragment extends Fragment {
 			resultCosts.add(new Result("Kostnad för " + cars + " bilar", "- "
 					+ prettifyString(cars * COST_CAR) + " kr", false));
 		
-		resultTotalTextView.setText("+ " + prettifyString(leftOverCash) + " kr");
-		resultOther.setText("Med " + PAYBACK_PERCENTAGE*100 + " % i årlig amortering och med en årlig ränta på " + interest*100 + " % så bör du/ni kunna låna ca\n "+ prettifyString(maxLoan) + " kr.");
+		String resultText;
+		if(leftOverCash <= 0){
+			resultTotalTextView.setText("- " + prettifyString(Math.abs(leftOverCash)) + " kr");
+			resultText = "Enligt kalkylen har du " + prettifyString(leftOverCash) + " kr kvar i månaden vilket är för lite för att räcka till några räntekostnader.";
+		} else{
+			resultTotalTextView.setText("+ " + prettifyString(leftOverCash) + " kr");
+			resultText = "Med " + PAYBACK_PERCENTAGE*100 + " % i årlig amortering och med en årlig ränta på " + interest*100 + " % så bör du/ni kunna låna ca\n "+ prettifyString(maxLoan) + " kr.";
+		}
+		
+		resultOther.setText(resultText);
 	}
 
 	private static String prettifyString(Integer i) {

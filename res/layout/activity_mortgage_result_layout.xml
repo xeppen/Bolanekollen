@@ -52,6 +52,7 @@
         <View
             android:layout_width="fill_parent"
             android:layout_height="1dp"
+            android:layout_margin="10dp"
             android:background="@android:color/darker_gray" />
 
         <TextView
@@ -85,6 +86,13 @@
             android:divider="@android:color/transparent"
             android:dividerHeight="0dp" >
         </ListView>
+        
+        <View
+            android:layout_width="fill_parent"
+            android:layout_height="1dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:background="@android:color/darker_gray" />
 
         <LinearLayout
             android:layout_width="fill_parent"
