@@ -22,6 +22,21 @@
     </LinearLayout>
     
     <LinearLayout
+        android:id="@+id/bankLoanInformation"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="5dip" >
+
+        <TextView
+            android:id="@+id/bankLoanInformationTextView"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/textSize"
+            android:text="@string/bankLoanInformationText" />
+    </LinearLayout>
+    
+    <LinearLayout
         android:id="@+id/bankLoanRow"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
@@ -181,7 +196,7 @@
             android:layout_width="fill_parent"
             android:layout_height="fill_parent"
             android:layout_weight="6"
-            android:text="0.0 kr/mån"
+            android:text="0 kr/mån"
             android:textSize="@dimen/textSize" >
         </TextView>
     </LinearLayout>
@@ -207,7 +222,7 @@
             android:layout_width="fill_parent"
             android:layout_height="fill_parent"
             android:layout_weight="6"
-            android:text="0.0 kr/mån"
+            android:text="0 kr/mån"
             android:textSize="@dimen/textSize" />
     </LinearLayout>
 

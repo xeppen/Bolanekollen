@@ -7,7 +7,7 @@
     <string-array name="menus">
         <item>Hem</item>
         <item>Bolånekalkyl</item>
-        <item>Kostnad - bolån</item>
+        <item>Ränteskillnad för bolån</item>
         <item>Aktuella boräntor</item>
         <item>Kostnad - privatlån</item>
     </string-array>
@@ -19,7 +19,7 @@
     <!-- Interest strings -->
     <string name="loanTextView">Belopp:</string>
     <string name="loanCurrencyTextView">kr</string>
-    <string name="loanHintEditText">Ange lånebelopp i kr</string>
+    <string name="loanHintEditText">Ange lånebelopp</string>
     <string name="amortTimeTextView">Amortering:</string>
     <string name="amortYearTextView">0 år</string>
     <string name="amortAmountTextView">Amortering</string>
@@ -42,6 +42,8 @@
     <string name="privateLoanPaybackTextView">0 kr</string>
     <string name="privateLoanEffectiveInterestEditTextView">0 %</string>
     <string name="privateLoanTotalInterestCostEditTextView">0 kr</string>
+    <string name="privateLoanInformationText">Många tar idag privatlån för att utöka sin kontantinsats, räkna på vad det skulle kosta dig!</string>
+    <string name="privateLoanHeadline">Räkna ut kostnaden för privatlån</string>
 
     <!-- houseLoan -->
     <string name="household"><u>Hushållet</u></string>
@@ -60,11 +62,13 @@
     <string name="zeroPrompt">0</string>
     <string name="submit_button">Beräkna bostadspris</string>
     <string name="gotCashPayment">Finns given kontantinsats?</string>
-    <string name="cashPaymentUnit">Ange max kontantinsats, kr</string>
+    <string name="cashPaymentUnit">Ange belopp, kr</string>
     <string name="cashPayment"><u>Kontantinsats</u></string>
     <string name="costs"><u>Andra privat- och studentlån</u></string>
     <string name="otherCostsTextView">Kostnad, kr/mån</string>
     <string name="otherCostsEditText">0</string>
+    <string name="mortgageInformationView">Fyll i kalkylen nedan för att beräkna ungefär hur mycket du/ni bör kunna köpa ny bostad för.</string>
+    <string name="newHouseholdRowTextView">Typ av bostad:</string>
 
     <!-- Bank interest -->
     <string name="infoBankInteretTextView">Nedan är dagsaktuella bolåneräntor ifrån de största bankerna i Sverige.</string>
@@ -78,30 +82,31 @@
 
     <!-- Bank loan -->
     <string name="bankLoanTextView">Bolån</string>
-    <string name="bankLoanEditText">0</string>
+    <string name="bankLoanEditText">Ange lånebelopp</string>
     <string name="bankLoanCurrencyTextView">kr</string>
     <string name="bankLoanInterestTextView">Ränta</string>
     <string name="bankLoanInterestEditText">0</string>
     <string name="bankLoanInterestUnitTextView">%</string>
     <string name="interestChangeTextView">Ränteförändring</string>
     <string name="bankLoanInterestCost">Nuvarande räntekostnad:</string>
-    <string name="bankLoanUpdatedInterestCost">Uppdaterad räntekostnad:</string>
+    <string name="bankLoanUpdatedInterestCost">Ny räntekostnad:</string>
     <string name="bankLoanResultInterestDifference">Skillnad i månadskostnad:</string>
-    <string name="bankLoanResultInterestDifferenceTextView">+0.00kr</string>
+    <string name="bankLoanResultInterestDifferenceTextView">+0kr</string>
     <string name="updatedInterestChangeTextView">+0.0%</string>
     <string name="BankLoanHeadlineTextView">Bolånekostnad vid ränteskillnad</string>
+    <string name="bankLoanInformationText">Räkna på hur mycket en ränteökning av bolånet kommer påverka din månadskostnad.</string>
 
     <!-- Bankloan dialog -->
-    <string name="bankLoanDialogHeadlineTextView">Vad är en boånekalkyl?</string>
-    <string name="bankLoanDialog1ContentTextView">När du ansöker om ett bolån hos en bank så gör banken en bolånekalkyl som speglar din och din familjs ekonomiska situation. Bolånekalkylen inkluderar hushållets inkomster samt utgifter t.ex. driftkostnader eller räntor för andra lån, samt andra kostnader som förbrukningsartiklar, kläder, mat med mera för att få fram en uppskattning på hur mycket du kan låna.</string>
+    <string name="bankLoanDialogHeadlineTextView">Vad är en bolånekalkyl?</string>
+    <string name="bankLoanDialog1ContentTextView">När du ansöker om ett bolån hos en bank så gör banken en bolånekalkyl som speglar din och din familjs ekonomiska situation. Bolånekalkylen inkluderar hushållets inkomster samt utgifter t.ex. driftkostnader eller räntor för andra lån, samt andra kostnader som förbrukningsartiklar, kläder, mat med mera för att få fram en uppskattning på hur mycket du kan låna. \n\nKalkylen kan skilja sig något mellan olika banker. Informationen som används i denna kalkyl är erhållen och granskad av en banktjänsteman.</string>
     <string name="bankLoanDialogHeadline2TextView">Syftet med en bolånekalkyl?</string>
     <string name="bankLoanDialog2ContentTextView">När beräkningen med bolånekalkylen görs så bör man alltid inkludera scenarier med högre ränta än idag. Detta gör att bankerna kan försäkra sig om att du och ditt hushåll kan klara av en ökning av dina räntekostnader. Man bör se till att det finns en marginal och inte låna upp så att du precis klarar räntekostnaderna idag.</string>
     <string name="bankLoanDialogHeadline3TextView">Belåningsgrad och amortering</string>
-    <string name="bankLoanDialog3ContentTextView" formatted="false">Tänk också på att du med ett bolån idag max får låna 85% av bostadens värde. Resten av beloppet måste du lägga in kontant. En del banker har även krav på att du måste amortera om du lånar över 75% av bostadens värde. I kalkylen så är 1%; årlig amortering inräknad.</string>
+    <string name="bankLoanDialog3ContentTextView" formatted="false">Tänk också på att du med ett bolån idag max får låna 85% av bostadens värde. Resten av beloppet måste du lägga in kontant. En del banker har även krav på att du måste amortera om du lånar över 75% av bostadens värde. I kalkylen så är 1% årlig amortering inräknad.</string>
     <string name="bankLoanDialogHeadline4TextView">Schablonbelopp i kalkylen</string>
     <string name="bankLoanDialog4ContentTextView">För att förenkla bolåneberäkningen så har ett antal schablonbelopp använts för att uppskatta kostnaden. Levnadsomkostnaden för en vuxen uppskattas till 7200 kr samt 11 000 kr för två vuxna. Varje barn uppskattas kosta 2500 kr och varje bil 3000 kr. Utöver alla levnadsomkostnader så bör en familj ha kvar minst 4000 kr i fickpengar/sparande/övriga kostnader per månad.</string>
 	<string name="bankLoanDialogHeadline5TextView">Beräkningen av bostadspriset</string>
-	<string name="bankLoanDialog5ContentTextView">Denna beräkning använder de inkomster och utgifter du angett, tillsammans med en del schablonbelopp, för att beräkna ungefär hur mycket du har över varje månad för räntekostnader och amortering av ett bostadslån. Denna summa används sedan tillsammans med bankernas femårsränta plus två procentenheter, för att beräkna ungefär hur mycket du får låna. Utifrån detta lånebelopp beräknas vilken kontantinsats som behövs, vilket tillsammans med lånebeloppet ger dig ett ungefärligt belopp på vad din blivande bostad kan kosta.</string>
+	<string name="bankLoanDialog5ContentTextView">Denna beräkning använder de inkomster och utgifter du angett, tillsammans med en del schablonbelopp, för att beräkna ungefär hur mycket du har över varje månad för räntekostnader och amortering av ett bostadslån. Denna summa används sedan tillsammans med bankernas femårsränta plus två procentenheter, för att beräkna ungefär hur mycket du får låna. Dom två procentenheterna används som en marginal för att säkerställa att hushållet klarar en ränteökning på minst två procent. Utifrån detta lånebelopp beräknas vilken kontantinsats som behövs, vilket tillsammans med lånebeloppet ger dig ett ungefärligt belopp på vad din blivande bostad kan kosta.</string>
     
     <!-- Private loan dialog -->
     <string name="interestDialogHeadlineTextView">Rak amortering</string>
@@ -122,8 +127,10 @@
     <string name="Tips_1_View">...</string>
 
     <!-- Home page -->
-    <string name="introductionHomePage">Att köpa en egen bostad är för de flesta av oss ett stort och betydelsefullt steg i livet. Ofta handlar affären om mycket pengar och det påverkar hela familjens ekonomi under en lång tid. Med denna app så vill vi hjälpa dig att räkna på ungefär hur mycket du bör kunna låna till en ny bostad samt hur din ekonomi klarar samt hur en ändring av till exempel räntan kommer påverka. Vid bostadsköp idag så krävs för det mesta en kontantinsats på minst 15 % av bostadens köpebelopp och för många så kan ett privatlån behövas för att täcka denna del. För att räkna på hur mycket ett privatlån skulle kosta för just dig använd vår privatlånskalkyl i menyn.</string>
-
+    <string name="houseloanButton">Gå till bolånekalkylen</string>
+    <string name="introductionHomePage">Att köpa en egen bostad är för de flesta av oss ett stort och betydelsefullt steg i livet. Det handlar ofta om stora summer som påverkar hela familjens ekonomi. \n\nAnvänd menyn uppe till höger att navigera dig igenom de olika kalkylerna!</string>
+	<!-- Att köpa en egen bostad är för de flesta av oss ett stort och betydelsefullt steg i livet. Ofta handlar affären om mycket pengar och det påverkar hela familjens ekonomi under en lång tid. Med denna app så vill vi hjälpa dig att räkna på ungefär hur mycket du bör kunna låna till en ny bostad samt hur din ekonomi klarar samt hur en ändring av till exempel räntan kommer påverka. Vid bostadsköp idag så krävs för det mesta en kontantinsats på minst 15 % av bostadens köpebelopp och för många så kan ett privatlån behövas för att täcka denna del. För att räkna på hur mycket ett privatlån skulle kosta för just dig använd vår privatlånskalkyl i menyn.</string> -->
+    
     <!-- Schablon values -->
     <string name="cost_one_adult">7200</string>
     <string name="cost_two_adults">11000</string>

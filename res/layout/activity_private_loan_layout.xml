@@ -7,7 +7,7 @@
     android:orientation="vertical" >
 	
     <LinearLayout
-        android:id="@+id/privateLoanInformation"
+        android:id="@+id/privateLoanHeadline"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
@@ -18,7 +18,22 @@
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:textSize="@dimen/headlines"
-            android:text="Räkna kostnad av privatlån" />
+            android:text="@string/privateLoanHeadline" />
+    </LinearLayout>
+    
+    <LinearLayout
+        android:id="@+id/privateLoanInformation"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="5dip" >
+
+        <TextView
+            android:id="@+id/privateLoanInformationTextView"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/textSize"
+            android:text="@string/privateLoanInformationText" />
     </LinearLayout>
     
     <LinearLayout

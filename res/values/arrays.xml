@@ -26,6 +26,12 @@
 		<item>3+ bilar</item>
 	</string-array>
 	
+    <string-array name="householdTypes">
+        <item>Bostadsrätt</item>
+		<item>Villa</item>
+		<item>Fritidshus</item>
+	</string-array>
+	
     <string-array name="updateInterval">
         <item name="1000">Every 1 second</item>
         <item name="5000">Every 5 seconds</item>

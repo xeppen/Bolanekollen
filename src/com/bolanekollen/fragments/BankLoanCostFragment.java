@@ -1,21 +1,42 @@
 package com.bolanekollen.fragments;
 
+import java.io.IOException;
+import java.io.StringReader;
 import java.math.BigInteger;
 import java.math.RoundingMode;
 import java.text.DecimalFormat;
 import java.text.DecimalFormatSymbols;
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.xml.parsers.DocumentBuilder;
+import javax.xml.parsers.DocumentBuilderFactory;
+import javax.xml.parsers.ParserConfigurationException;
+
+import org.w3c.dom.Document;
+import org.w3c.dom.Element;
+import org.w3c.dom.NodeList;
+import org.xml.sax.InputSource;
+import org.xml.sax.SAXException;
 
 import com.bolanekollen.R;
+import com.bolanekollen.util.Bank;
 import com.bolanekollen.util.GenericTextWatcher;
 
+import android.app.Activity;
 import android.app.Fragment;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.util.Log;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.View.OnFocusChangeListener;
 import android.view.View.OnKeyListener;
+import android.view.View.OnTouchListener;
+import android.view.inputmethod.InputMethodManager;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemSelectedListener;
@@ -38,7 +59,7 @@ public class BankLoanCostFragment extends Fragment {
 	TextView bankLoanResultInterestDifferenceTextView;
 	TextView BankLoanHeadline;
 
-	double interest = 0.001;
+	double interest = 0.04;
 	double bankLoanAmount = 0;
 	double interestDiff = 0;
 	double updateInterest = 0.001;
@@ -47,6 +68,7 @@ public class BankLoanCostFragment extends Fragment {
 	double diffInterestCost = 0;
 
 	static double INTEREST_INTERVALL = 0.002;
+	static final Double ADDED_PERCENTAGE = 0.02;
 
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -63,7 +85,7 @@ public class BankLoanCostFragment extends Fragment {
 		View v = inflater.inflate(R.layout.activity_bankloan_cost_layout, container,
 				false);
 		
-		
+		setupUI(v);
 
 		// Assign all elements
 		bankLoanEditText = (EditText) v.findViewById(R.id.bankLoanEditText);
@@ -82,9 +104,11 @@ public class BankLoanCostFragment extends Fragment {
 		BankLoanHeadline = (TextView) v.findViewById(R.id.BankLoanHeadlineTextView);
 		BankLoanHeadline.setText("Bolånekostnad vid ränteskillnad");
 		addListeners();
-
-		bankLoanEditText.setText("0");
-		bankLoanInterestEditText.setText("0");
+		
+		double p = checkUpdatedInterest();
+		
+		//bankLoanEditText.setText("0");
+		bankLoanInterestEditText.setText(String.valueOf(p));
 		return v;
 	}
 
@@ -170,8 +194,12 @@ public class BankLoanCostFragment extends Fragment {
 		String t = bankLoanInterestEditText.getText().toString();
 		interest = Double.valueOf(bankLoanInterestEditText.getText().toString()
 				.replaceAll("\\s+", "")) / 100;
-		bankLoanAmount = Double.valueOf(bankLoanEditText.getText().toString()
-				.replaceAll("\\s+", ""));
+		String s = bankLoanEditText.getText().toString()
+				.replaceAll("\\s+", "");
+		if(s.equals(""))
+			bankLoanAmount = 0;
+		else
+			bankLoanAmount = Double.valueOf(s);
 		interestDiff = interestChangeSeekBar.getProgress() * INTEREST_INTERVALL;
 		updateInterest = interest + interestDiff;
 
@@ -183,12 +211,12 @@ public class BankLoanCostFragment extends Fragment {
 	}
 
 	protected void updateResult() {
-		bankLoanInterestCostAmount.setText(truncate(currentInterestCost)
+		bankLoanInterestCostAmount.setText(prettifyString((int)currentInterestCost)
 				+ " kr/mån");
 		bankLoanUpdatedInterestCostTextView
-				.setText(truncate(updatedInterestCost) + " kr/mån");
+				.setText(prettifyString((int)updatedInterestCost) + " kr/mån");
 		bankLoanResultInterestDifferenceTextView
-				.setText("+" + truncate(diffInterestCost) + " kr");
+				.setText("+" + prettifyString((int)diffInterestCost) + " kr");
 	}
 
 	private void addEditBoxChangeListener() {
@@ -230,5 +258,140 @@ public class BankLoanCostFragment extends Fragment {
 
 	private static String prettifyString2(String s) {
 		return prettifyString(Integer.valueOf(s));
+	}
+	
+	private double checkUpdatedInterest() {
+		String xml = loadSavedPreferences("Bolåneappen_xml");
+		Document dom = getDomElement(xml);
+		NodeList nl = null;
+		double p = interest;
+		List<Bank> banks = new ArrayList<Bank>();
+
+		if (dom != null) {
+			Element docEle = dom.getDocumentElement();
+			nl = docEle.getElementsByTagName("Bank");
+		}
+
+		if (nl != null && nl.getLength() > 0) {
+			for (int i = 0; i < nl.getLength(); i++) {
+				Bank aBank = getBankInformation((Element) nl.item(i));
+				if (aBank != null)
+					banks.add(aBank);
+			}
+			for (int j = 0; j < banks.size(); j++) {
+				p += Double.valueOf(banks.get(j).getFiveYearInterest()
+						.replace(",", "."));
+			}
+			p = p / banks.size();
+			p = Math.floor(p * 100) / 100;
+		}
+		return p;
+	}
+	
+	private String loadSavedPreferences(String key) {
+		String value;
+		SharedPreferences sharedPreferences = PreferenceManager
+				.getDefaultSharedPreferences(getActivity());
+		if (key.toLowerCase().contains("_time"))
+			value = sharedPreferences.getString(key, "0");
+		else
+			value = sharedPreferences.getString(key, "");
+		return value;
+	}
+	private Bank getBankInformation(Element entry) {
+
+		NodeList rates = entry.getElementsByTagName("Rate");
+
+		Integer bankId = Integer.valueOf(getTextValue(entry, "BankId"));
+		if (bankId != 15 && bankId != 16 && bankId != 17
+				&& rates.getLength() >= 4) {
+			String bankName = getTextValue(entry, "BankName");
+			String imgUrl = getTextValue(entry, "BankImage");
+
+			String bankUrl = getTextValue(entry, "BankUrl");
+			String threeMonthInterest = getTextValue((Element) rates.item(0),
+					"RateInterest");
+			String oneYearInterest = getTextValue((Element) rates.item(1),
+					"RateInterest");
+			String twoYearInterest = getTextValue((Element) rates.item(2),
+					"RateInterest");
+			String threeYearInterest = getTextValue((Element) rates.item(3),
+					"RateInterest");
+			String fiveYearInterest = getTextValue((Element) rates.item(4),
+					"RateInterest");
+
+			Bank theBank = new Bank();
+			theBank.setBankId(bankId);
+			theBank.setBankName(bankName);
+			theBank.setImgUrl(imgUrl);
+			theBank.setBankUrl(bankUrl);
+			theBank.setThreeMonthInterest(threeMonthInterest);
+			theBank.setOneYearInterest(oneYearInterest);
+			theBank.setTwoYearInterest(twoYearInterest);
+			theBank.setThreeYearInterest(threeYearInterest);
+			theBank.setFiveYearInterest(fiveYearInterest);
+
+			return theBank;
+		} else {
+			return null;
+		}
+	}
+	private String getTextValue(Element entry, String tagName) {
+		String tagValueToReturn = null;
+		NodeList nl = entry.getElementsByTagName(tagName);
+
+		if (nl != null && nl.getLength() > 0) {
+			Element element = (Element) nl.item(0);
+			tagValueToReturn = element.getFirstChild().getNodeValue();
+		}
+		return tagValueToReturn;
+	}
+	public Document getDomElement(String xml) {
+		Document doc = null;
+		DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
+		try {
+
+			DocumentBuilder db = dbf.newDocumentBuilder();
+
+			InputSource is = new InputSource();
+			is.setCharacterStream(new StringReader(xml));
+			doc = db.parse(is);
+
+		} catch (ParserConfigurationException e) {
+			Log.e("Error: ", e.getMessage());
+			return null;
+		} catch (SAXException e) {
+			Log.e("Error: ", e.getMessage());
+			return null;
+		} catch (IOException e) {
+			Log.e("Error: ", e.getMessage());
+			return null;
+		}
+		// return DOM
+		return doc;
+	}
+	
+	public static void hideSoftKeyboard(Activity activity) {
+		InputMethodManager inputMethodManager = (InputMethodManager) activity
+				.getSystemService(Activity.INPUT_METHOD_SERVICE);
+		inputMethodManager.hideSoftInputFromWindow(activity.getCurrentFocus()
+				.getWindowToken(), 0);
+	}
+
+	public void setupUI(View view) {
+
+		// Set up touch listener for non-text box views to hide keyboard.
+		if (!(view instanceof EditText)) {
+
+			view.setOnTouchListener(new OnTouchListener() {
+
+				@Override
+				public boolean onTouch(View arg0, MotionEvent arg1) {
+					hideSoftKeyboard(getActivity());
+					return false;
+				}
+
+			});
+		}
 	}
 }

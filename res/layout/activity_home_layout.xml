@@ -15,19 +15,117 @@
         android:id="@+id/textView1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:paddingLeft="15dp"
-        android:paddingRight="15dp"
         android:paddingBottom="5dp"
-        android:textSize="16sp"
-        android:text="@string/introductionHomePage" />
-
-    <TextView
-        android:id="@+id/textView2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="15sp"
         android:paddingLeft="15dp"
         android:paddingRight="15dp"
-        android:text="Använd menyn för att navigera till bolånekalkylen samt de andra kalkylerna som finns." />
+        android:text="@string/introductionHomePage"
+        android:textSize="16sp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="@drawable/home_form_background"
+        android:layout_margin="20dp" >
+
+        <LinearLayout
+            android:id="@+id/homeFormAdultRow"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:padding="@dimen/tighter_padding"
+            android:layout_marginLeft="@dimen/homeformMargin"
+            android:layout_marginTop="@dimen/homeformMargin"
+            android:layout_marginRight="@dimen/homeformMargin" >
+
+            <TextView
+                android:id="@+id/homeFormAdultTextView"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="4"
+                android:text="@string/householdAdults"
+                android:textSize="@dimen/textSize" >
+            </TextView>
+
+            <Spinner
+                android:id="@+id/homeFormAdultSpinner"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="4"
+                android:entries="@array/householdAdults"
+                android:padding="@dimen/tighter_padding"
+                android:prompt="@string/zeroPrompt" >
+            </Spinner>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/homeFormChildrenRow"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:padding="@dimen/tighter_padding"
+            android:layout_marginLeft="@dimen/homeformMargin"
+            android:layout_marginRight="@dimen/homeformMargin" >
+
+            <TextView
+                android:id="@+id/homeFormChildrenTextView"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="4"
+                android:text="@string/householdChildren"
+                android:textSize="@dimen/textSize" >
+            </TextView>
+
+            <Spinner
+                android:id="@+id/homeFormChildrenSpinner"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="4"
+                android:entries="@array/householdChildren"
+                android:padding="@dimen/tighter_padding"
+                android:prompt="@string/zeroPrompt" >
+            </Spinner>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/homeFormHouseTypeRow"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:layout_marginLeft="@dimen/homeformMargin"
+            android:layout_marginRight="@dimen/homeformMargin"
+            android:layout_marginBottom="@dimen/homeformMargin"
+            android:padding="@dimen/tighter_padding" >
+
+            <TextView
+                android:id="@+id/homeFormHouseTypeTextView"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="4"
+                android:text="@string/newHouseholdRowTextView"
+                android:textSize="@dimen/textSize" >
+            </TextView>
+
+            <Spinner
+                android:id="@+id/homeFormHouseTypeSpinner"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="4"
+                android:entries="@array/householdTypes"
+                android:padding="@dimen/tighter_padding"
+                android:prompt="@string/zeroPrompt" >
+            </Spinner>
+        </LinearLayout>
+        
+        <Button
+            android:id="@+id/goToHouseLoanFormButton"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/buttonColor"
+            android:onClick="getResult"
+            android:layout_margin="15dp"
+            android:text="@string/houseloanButton" >
+        </Button>
+    </LinearLayout>
 
 </LinearLayout>

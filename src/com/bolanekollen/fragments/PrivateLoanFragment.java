@@ -5,6 +5,7 @@ import java.text.DecimalFormatSymbols;
 import java.util.ArrayList;
 import java.util.List;
 
+import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.app.Fragment;
@@ -13,10 +14,13 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.View.OnFocusChangeListener;
 import android.view.View.OnKeyListener;
+import android.view.View.OnTouchListener;
+import android.view.inputmethod.InputMethodManager;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemSelectedListener;
@@ -71,6 +75,8 @@ public class PrivateLoanFragment extends Fragment {
 		// Creating view corresponding to the fragment
 		View v = inflater.inflate(R.layout.activity_private_loan_layout,
 				container, false);
+		
+		setupUI(v);
 
 		// Updating the action bar title
 		// getActivity().getActionBar().setTitle(menus[position]);
@@ -85,8 +91,8 @@ public class PrivateLoanFragment extends Fragment {
 				.findViewById(R.id.privateLoanInfoButton);
 		privateLoanPayback = (TextView) v.findViewById(R.id.privateLoanPayback);
 
-		loanEditText.setText("0");
-		interestEditText.setText("0.1");
+		//loanEditText.setText("0");
+		interestEditText.setText("5");
 
 		addKeyListeners();
 		repayTimeSeekBar.setOnSeekBarChangeListener(repayTimeSeekBarListener);
@@ -256,7 +262,7 @@ public class PrivateLoanFragment extends Fragment {
 
 			// Calculate effectiveInterest
 			if (loanAmount != 0)
-				effectiveInterest = totalInterestCost / loanAmount;
+				effectiveInterest = (totalInterestCost/paybackTime) / loanAmount;
 
 			// Calculate total monthly cost
 			for (int i = 0; i < paybackTimeMonths; i++)
@@ -279,7 +285,7 @@ public class PrivateLoanFragment extends Fragment {
 
 			// Caculate effective interest
 			if (loanAmount != 0)
-				effectiveInterest = totalInterestCost / loanAmount;
+				effectiveInterest = (totalInterestCost/paybackTime) / loanAmount;
 			else
 				effectiveInterest = 0;
 
@@ -306,7 +312,7 @@ public class PrivateLoanFragment extends Fragment {
 			loanAmount = Integer.parseInt(loanEditText.getText().toString()
 					.replaceAll("\\s+", ""));
 		} else {
-			loanEditText.setText("0");
+			//loanEditText.setText("0");
 			loanAmount = 0;
 		}
 
@@ -327,10 +333,10 @@ public class PrivateLoanFragment extends Fragment {
 		TextView privateLoanPaybackTextView = (TextView) this.getActivity()
 				.findViewById(R.id.privateLoanPaybackTextView);
 
-		totalInterestCostTextView.setText(truncate(totalInterestCost) + " kr");
+		totalInterestCostTextView.setText(prettifyString((int)totalInterestCost) + " kr");
 		effectiveInterestTextView.setText(truncate(effectiveInterest * 100)
 				+ " %");
-		privateLoanPaybackTextView.setText(truncate(monthlyPayback) + " kr");
+		privateLoanPaybackTextView.setText(prettifyString((int)monthlyPayback) + " kr");
 	}
 
 	protected boolean isNumeric(String str) {
@@ -364,6 +370,44 @@ public class PrivateLoanFragment extends Fragment {
 		a = (S * p) / (1 - k);
 
 		return a;
+	}
+	
+	private static String prettifyString(Integer i) {
+
+		DecimalFormat format = new DecimalFormat();
+		DecimalFormatSymbols customSymbols = new DecimalFormatSymbols();
+		customSymbols.setGroupingSeparator(' ');
+		format.setDecimalFormatSymbols(customSymbols);
+		String s = format.format(i);
+		return s;
+	}
+
+	private static String prettifyString2(String s) {
+		return prettifyString(Integer.valueOf(s));
+	}
+	
+	public static void hideSoftKeyboard(Activity activity) {
+		InputMethodManager inputMethodManager = (InputMethodManager) activity
+				.getSystemService(Activity.INPUT_METHOD_SERVICE);
+		inputMethodManager.hideSoftInputFromWindow(activity.getCurrentFocus()
+				.getWindowToken(), 0);
+	}
+
+	public void setupUI(View view) {
+
+		// Set up touch listener for non-text box views to hide keyboard.
+		if (!(view instanceof EditText)) {
+
+			view.setOnTouchListener(new OnTouchListener() {
+
+				@Override
+				public boolean onTouch(View arg0, MotionEvent arg1) {
+					hideSoftKeyboard(getActivity());
+					return false;
+				}
+
+			});
+		}
 	}
 
 }

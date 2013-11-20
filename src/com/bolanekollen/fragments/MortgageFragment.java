@@ -17,6 +17,7 @@ import org.w3c.dom.NodeList;
 import org.xml.sax.InputSource;
 import org.xml.sax.SAXException;
 
+import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.Fragment;
 import android.app.FragmentManager;
@@ -28,8 +29,10 @@ import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.view.View.OnTouchListener;
 import android.view.ViewGroup;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
@@ -38,6 +41,7 @@ import android.widget.CompoundButton;
 import android.widget.CompoundButton.OnCheckedChangeListener;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -52,6 +56,7 @@ public class MortgageFragment extends Fragment {
 	Spinner householdAdultsSpinner;
 	Spinner householdChildrenSpinner;
 	Spinner householdCarSpinner;
+	Spinner newHouseholdSpinner;
 
 	EditText incomeSalaryEditText;
 	EditText incomeOtherEditText;
@@ -64,7 +69,9 @@ public class MortgageFragment extends Fragment {
 	CheckBox useMaxCashPaymentCheckBox;
 	TextView cashPaymentUnit;
 	ImageView mortgageInfoButton;
-
+	
+	LinearLayout cashPaymentUnitRow;
+	
 	// Define usable variables
 	int adults = 1;
 	int children = 0;
@@ -85,7 +92,8 @@ public class MortgageFragment extends Fragment {
 	double totalBuyPrice = 0;
 	double cashPayment = 0;
 	int leftOverCash = 0;
-	
+	int householdType = 0;
+
 	boolean debug = false;
 
 	// Define static values
@@ -108,6 +116,8 @@ public class MortgageFragment extends Fragment {
 		// Creating view corresponding to the fragment
 		View v = inflater.inflate(R.layout.activity_mortgage_layout, container,
 				false);
+		
+		setupUI(v);
 
 		// Assign fields
 		householdAdultsSpinner = (Spinner) v
@@ -116,7 +126,10 @@ public class MortgageFragment extends Fragment {
 				.findViewById(R.id.householdChildrenSpinner);
 		householdCarSpinner = (Spinner) v
 				.findViewById(R.id.householdCarSpinner);
-
+		newHouseholdSpinner = (Spinner) v
+				.findViewById(R.id.newHouseholdSpinner);
+		cashPaymentUnitRow = (LinearLayout) v.findViewById(R.id.cashPaymentUnitRow);
+		
 		incomeSalaryEditText = (EditText) v
 				.findViewById(R.id.incomeSalaryEditText);
 		incomeOtherEditText = (EditText) v
@@ -139,13 +152,12 @@ public class MortgageFragment extends Fragment {
 		useMaxCashPaymentCheckBox
 				.setOnCheckedChangeListener(useMaxCashPaymentCheckBoxListener);
 		resultButton.setOnClickListener(resultButtonListener);
-
+		cashPaymentUnitRow.setVisibility(LinearLayout.GONE);
 		interest = checkUpdatedInterest();
 
 		setStartValues();
 
-		// if (isVariableAvaliable(savedInstanceState, "totalBuyPrice"))
-		if (getArguments().containsKey("totalBuyPrice"))
+		if (getArguments().containsKey("adults"))
 			setSavedValues(this.getArguments());
 
 		addEditBoxChangeListener();
@@ -176,8 +188,8 @@ public class MortgageFragment extends Fragment {
 			}
 			p = p / banks.size();
 			p = Math.floor(p * 100) / 100;
-			p += 100*ADDED_PERCENTAGE;
-			p = p/100;
+			p += 100 * ADDED_PERCENTAGE;
+			p = p / 100;
 		}
 		return p;
 	}
@@ -229,9 +241,10 @@ public class MortgageFragment extends Fragment {
 
 		useMaxCashPayment = data.getBoolean("useMaxCashPayment", false);
 		maxCashPayment = data.getInt("maxCashPayment", 0);
-		interest = data.getDouble("interest", 0.07);
+		interest = data.getDouble("interest", interest);
 		totalBuyPrice = (double) data.getInt("totalBuyPrice", 0);
 		cashPayment = (double) data.getInt("cashPayment", 0);
+		householdType = data.getInt("householdType", 0);
 
 		setSavedValuesToFields();
 
@@ -248,12 +261,14 @@ public class MortgageFragment extends Fragment {
 				.setText(prettifyString(maintenenceCost));
 		costNewLivingMonthlyFeeEditText.setText(prettifyString(monthlyCost));
 		otherCostsEditText.setText(prettifyString(otherCosts));
+		newHouseholdSpinner.setSelection(householdType);
 
 		if (useMaxCashPayment) {
 			useMaxCashPaymentCheckBox.setChecked(useMaxCashPayment);
 			cashPaymentUnitEditText.setText(prettifyString3(cashPayment));
-			cashPaymentUnit.setEnabled(true);
-			cashPaymentUnitEditText.setEnabled(true);
+			cashPaymentUnitRow.setVisibility(LinearLayout.VISIBLE);
+			//cashPaymentUnit.setEnabled(true);
+			//cashPaymentUnitEditText.setEnabled(true);
 		}
 	}
 
@@ -261,8 +276,9 @@ public class MortgageFragment extends Fragment {
 
 		@Override
 		public void onClick(View v) {
-			final InputMethodManager imm = (InputMethodManager) getActivity().getSystemService(Context.INPUT_METHOD_SERVICE);
-		    imm.hideSoftInputFromWindow(getView().getWindowToken(), 0);
+			final InputMethodManager imm = (InputMethodManager) getActivity()
+					.getSystemService(Context.INPUT_METHOD_SERVICE);
+			imm.hideSoftInputFromWindow(getView().getWindowToken(), 0);
 			calulate();
 		}
 	};
@@ -273,11 +289,13 @@ public class MortgageFragment extends Fragment {
 		public void onCheckedChanged(CompoundButton buttonView,
 				boolean isChecked) {
 			if (isChecked) {
-				cashPaymentUnit.setEnabled(true);
-				cashPaymentUnitEditText.setEnabled(true);
+				cashPaymentUnitRow.setVisibility(LinearLayout.VISIBLE);
+				//cashPaymentUnit.setEnabled(true);
+				//cashPaymentUnitEditText.setEnabled(true);
 			} else {
-				cashPaymentUnit.setEnabled(false);
-				cashPaymentUnitEditText.setEnabled(false);
+				cashPaymentUnitRow.setVisibility(LinearLayout.GONE);
+				//cashPaymentUnit.setEnabled(false);
+				//cashPaymentUnitEditText.setEnabled(false);
 			}
 
 		}
@@ -336,34 +354,40 @@ public class MortgageFragment extends Fragment {
 
 	protected void calulate() {
 		fetchValues();
+		double maxLoanAmount = 0;
 
 		leftOverCash = totalIncome - totalCost - CASH_OVER;
-		if(leftOverCash > 0){
-		double maxLoanAmount = (leftOverCash * 12)
-				/ (interest + PAYBACK_PERCENTAGE);
+		if (leftOverCash > 0) {
+			maxLoanAmount = (leftOverCash * 12)
+					/ (interest + PAYBACK_PERCENTAGE);
 
-		totalBuyPrice = 0;
-		totalBuyPrice = maxLoanAmount / 0.85;
-		cashPayment = totalBuyPrice - maxLoanAmount;
-		if (useMaxCashPayment) {
-			if (maxCashPayment > cashPayment) {
-				cashPayment = (double) maxCashPayment;
-				totalBuyPrice = cashPayment + maxLoanAmount;
-			} else {
-				totalBuyPrice = maxCashPayment / 0.15;
-				cashPayment = maxCashPayment;
-				maxLoanAmount = totalBuyPrice - cashPayment;
+			totalBuyPrice = 0;
+			totalBuyPrice = maxLoanAmount / 0.85;
+			cashPayment = totalBuyPrice - maxLoanAmount;
+			if (useMaxCashPayment) {
+				if (maxCashPayment > cashPayment) {
+					cashPayment = (double) maxCashPayment;
+					totalBuyPrice = cashPayment + maxLoanAmount;
+				} else {
+					totalBuyPrice = maxCashPayment / 0.15;
+					cashPayment = maxCashPayment;
+					maxLoanAmount = totalBuyPrice - cashPayment;
 
+				}
 			}
-		}
 
-		Log.d("Bolanekollen", "maxLoanAmount: " + maxLoanAmount);
-		Log.d("Bolanekollen", "cashPayment: " + cashPayment);
-		Log.d("Bolanekollen", "totalBuyPrice: " + totalBuyPrice);
+			Log.d("Bolanekollen", "maxLoanAmount: " + maxLoanAmount);
+			Log.d("Bolanekollen", "cashPayment: " + cashPayment);
+			Log.d("Bolanekollen", "totalBuyPrice: " + totalBuyPrice);
 
-		openResultFragment();
-		} else{
-			alert("Du har fšr lite inkomst. Total inkomst: " + totalIncome +" kr och totala utgift: " + totalCost + " kr.");
+			openResultFragment();
+		} else {
+			maxLoanAmount = 0;
+			cashPayment = 0;
+			totalBuyPrice = 0;
+			// alert("Du har fšr liten inkomst. Total inkomst: " + totalIncome
+			// +" kr och totala utgift: " + totalCost + " kr.");
+			openResultFragment();
 		}
 	}
 
@@ -391,6 +415,7 @@ public class MortgageFragment extends Fragment {
 		data.putInt("totalBuyPrice", (int) truncate(truncate(totalBuyPrice)));
 		data.putInt("cashPayment", (int) truncate(truncate(cashPayment)));
 		data.putInt("leftOverCash", leftOverCash);
+		data.putInt("householdType", householdType);
 
 		MortgageResultFragment mrFragment = new MortgageResultFragment();
 
@@ -420,19 +445,22 @@ public class MortgageFragment extends Fragment {
 				.replaceAll("\\D+", ""));
 		totalIncome = income + otherIncome;
 
+		householdType = newHouseholdSpinner.getSelectedItemPosition();
+
 		maintenenceCost = Integer.valueOf(costNewLivingOperatingCostEditText
 				.getText().toString().replaceAll("\\D+", ""));
-		monthlyCost = Integer.valueOf(costNewLivingMonthlyFeeEditText
-				.getText().toString().replaceAll("\\D+", ""));
+		monthlyCost = Integer.valueOf(costNewLivingMonthlyFeeEditText.getText()
+				.toString().replaceAll("\\D+", ""));
 		otherCosts = Integer.valueOf(otherCostsEditText.getText().toString()
 				.replaceAll("\\D+", ""));
-		
+
 		int adultCosts = 0;
-		if(adults == 1)
+		if (adults == 1)
 			adultCosts = COST_ONE_ADULT;
-		else 
+		else
 			adultCosts = COST_TWO_ADULTS;
-		totalCost = otherCosts + maintenenceCost + monthlyCost + adultCosts + children*COST_CHILDREN + cars*COST_CAR + CASH_OVER;
+		totalCost = otherCosts + maintenenceCost + monthlyCost + adultCosts
+				+ children * COST_CHILDREN + cars * COST_CAR + CASH_OVER;
 
 		useMaxCashPayment = useMaxCashPaymentCheckBox.isChecked();
 		if (useMaxCashPayment) {
@@ -446,6 +474,7 @@ public class MortgageFragment extends Fragment {
 		Log.d("Bolanekollen", "totalIncome: " + totalIncome);
 		Log.d("Bolanekollen", "totalCost: " + totalCost);
 		Log.d("Bolanekollen", "useMaxCashPayment: " + useMaxCashPayment);
+		Log.d("Bolanekollen", "householdType: " + householdType);
 	}
 
 	private boolean isVariableAvaliable(Bundle b, String key) {
@@ -553,4 +582,27 @@ public class MortgageFragment extends Fragment {
 		return tagValueToReturn;
 	}
 
+	public static void hideSoftKeyboard(Activity activity) {
+		InputMethodManager inputMethodManager = (InputMethodManager) activity
+				.getSystemService(Activity.INPUT_METHOD_SERVICE);
+		inputMethodManager.hideSoftInputFromWindow(activity.getCurrentFocus()
+				.getWindowToken(), 0);
+	}
+
+	public void setupUI(View view) {
+
+		// Set up touch listener for non-text box views to hide keyboard.
+		if (!(view instanceof EditText)) {
+
+			view.setOnTouchListener(new OnTouchListener() {
+
+				@Override
+				public boolean onTouch(View arg0, MotionEvent arg1) {
+					hideSoftKeyboard(getActivity());
+					return false;
+				}
+
+			});
+		}
+	}
 }

@@ -5,6 +5,7 @@ import java.util.List;
 import com.bolanekollen.R;
 
 import android.content.Context;
+import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -32,6 +33,9 @@ public class BankInterestAdapter extends ArrayAdapter<Bank> {
 			LayoutInflater inflater = (LayoutInflater) context
 					.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 			row = inflater.inflate(R.layout.bank_interest_spinner_row, parent, false);
+			if ( position % 2 == 0 ){
+                row.setBackgroundColor(Color.LTGRAY);
+            }
 			holder.v1 = (TextView) row.findViewById(R.id.BankNameTextView);
 			holder.v2 = (TextView) row.findViewById(R.id.BankInterest1TextView);
 			holder.v3 = (TextView) row.findViewById(R.id.BankInterest2TextView);
