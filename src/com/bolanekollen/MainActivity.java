@@ -217,7 +217,7 @@ public class MainActivity extends Activity {
 		if (mDrawerToggle.onOptionsItemSelected(item)) {
 			return true;
 		}
-		
+		/*
 		FragmentManager fragmentManager = getFragmentManager();
 		FragmentTransaction ft = fragmentManager.beginTransaction();
 		
@@ -245,6 +245,7 @@ public class MainActivity extends Activity {
 			ft.replace(R.id.content_frame, pFragment);
 			ft.commit();
 		}
+		*/
 		return super.onOptionsItemSelected(item);
 	}
 

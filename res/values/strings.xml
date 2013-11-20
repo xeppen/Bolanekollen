@@ -10,7 +10,6 @@
         <item>Kostnad - bolån</item>
         <item>Aktuella boräntor</item>
         <item>Kostnad - privatlån</item>
-        <item></item>
     </string-array>
 
     <string name="drawer_open">Open Drawer</string>

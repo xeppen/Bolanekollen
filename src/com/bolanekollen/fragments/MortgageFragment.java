@@ -86,7 +86,7 @@ public class MortgageFragment extends Fragment {
 	double cashPayment = 0;
 	int leftOverCash = 0;
 	
-	boolean debug = true;
+	boolean debug = false;
 
 	// Define static values
 	static final Integer COST_ONE_ADULT = 7200;
