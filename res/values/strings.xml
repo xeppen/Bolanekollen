@@ -59,7 +59,7 @@
     <string name="costNewLivingMonthlyFee">Månadskostnad, kr/mån</string>
     <string name="zeroPrompt">0</string>
     <string name="submit_button">Beräkna bostadspris</string>
-    <string name="gotCashPayment">Finns given kontaninsats?</string>
+    <string name="gotCashPayment">Finns given kontantinsats?</string>
     <string name="cashPaymentUnit">Ange max kontantinsats, kr</string>
     <string name="cashPayment"><u>Kontantinsats</u></string>
     <string name="costs"><u>Andra privat- och studentlån</u></string>
