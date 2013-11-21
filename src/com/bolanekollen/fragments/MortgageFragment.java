@@ -203,12 +203,14 @@ public class MortgageFragment extends Fragment {
 			otherCostsEditText.setText(prettifyString2("2400"));
 			cashPaymentUnitEditText.setText(prettifyString2("150000"));
 		} else {
+			/*
 			incomeSalaryEditText.setText(prettifyString2("0"));
 			incomeOtherEditText.setText(prettifyString2("0"));
 			costNewLivingOperatingCostEditText.setText(prettifyString2("0"));
 			costNewLivingMonthlyFeeEditText.setText(prettifyString2("0"));
 			otherCostsEditText.setText(prettifyString2("0"));
 			cashPaymentUnitEditText.setText(prettifyString2("0"));
+			*/
 		}
 
 	}
@@ -255,12 +257,17 @@ public class MortgageFragment extends Fragment {
 		householdChildrenSpinner.setSelection(children);
 		householdCarSpinner.setSelection(cars);
 
-		incomeSalaryEditText.setText(prettifyString(income));
-		incomeOtherEditText.setText(prettifyString(otherIncome));
+		if(income != 0)
+			incomeSalaryEditText.setText(prettifyString(income));
+		if(otherIncome != 0)
+			incomeOtherEditText.setText(prettifyString(otherIncome));
+		if(maintenenceCost != 0)
 		costNewLivingOperatingCostEditText
 				.setText(prettifyString(maintenenceCost));
+		if(monthlyCost != 0)
 		costNewLivingMonthlyFeeEditText.setText(prettifyString(monthlyCost));
-		otherCostsEditText.setText(prettifyString(otherCosts));
+		if(otherCosts != 0)
+			otherCostsEditText.setText(prettifyString(otherCosts));
 		newHouseholdSpinner.setSelection(householdType);
 
 		if (useMaxCashPayment) {
@@ -356,7 +363,7 @@ public class MortgageFragment extends Fragment {
 		fetchValues();
 		double maxLoanAmount = 0;
 
-		leftOverCash = totalIncome - totalCost - CASH_OVER;
+		leftOverCash = totalIncome - totalCost;
 		if (leftOverCash > 0) {
 			maxLoanAmount = (leftOverCash * 12)
 					/ (interest + PAYBACK_PERCENTAGE);
@@ -438,21 +445,39 @@ public class MortgageFragment extends Fragment {
 				.toString().replaceAll("\\D+", ""));
 		cars = Integer.valueOf(householdCarSpinner.getSelectedItem().toString()
 				.replaceAll("\\D+", ""));
-
-		income = Integer.valueOf(incomeSalaryEditText.getText().toString()
-				.replaceAll("\\D+", ""));
-		otherIncome = Integer.valueOf(incomeOtherEditText.getText().toString()
-				.replaceAll("\\D+", ""));
+		
+		String sIncome = incomeSalaryEditText.getText().toString().replaceAll("\\D+", "");
+		if(!sIncome.equals(""))
+			income = Integer.valueOf(sIncome);
+		else
+			income = 0;
+		
+		String sIncomeOtherEditText = incomeOtherEditText.getText().toString().replaceAll("\\D+", "");
+		if(!sIncomeOtherEditText.equals(""))
+			otherIncome = Integer.valueOf(sIncomeOtherEditText);
+		else
+			otherIncome = 0;
 		totalIncome = income + otherIncome;
 
 		householdType = newHouseholdSpinner.getSelectedItemPosition();
-
-		maintenenceCost = Integer.valueOf(costNewLivingOperatingCostEditText
-				.getText().toString().replaceAll("\\D+", ""));
-		monthlyCost = Integer.valueOf(costNewLivingMonthlyFeeEditText.getText()
-				.toString().replaceAll("\\D+", ""));
-		otherCosts = Integer.valueOf(otherCostsEditText.getText().toString()
-				.replaceAll("\\D+", ""));
+		
+		String sMaintenenceCost = costNewLivingOperatingCostEditText.getText().toString().replaceAll("\\D+", "");
+		if(!sMaintenenceCost.equals(""))
+			maintenenceCost = Integer.valueOf(sMaintenenceCost);
+		else
+			maintenenceCost = 0;
+		
+		String sMonthlyCost = costNewLivingMonthlyFeeEditText.getText().toString().replaceAll("\\D+", "");
+		if(!sMonthlyCost.equals(""))
+			monthlyCost = Integer.valueOf(sMonthlyCost);
+		else
+			monthlyCost = 0;
+		
+		String sOtherCosts = otherCostsEditText.getText().toString().replaceAll("\\D+", "");
+		if(!sOtherCosts.equals(""))
+			otherCosts = Integer.valueOf(sOtherCosts);
+		else
+			otherCosts = 0;
 
 		int adultCosts = 0;
 		if (adults == 1)
@@ -464,8 +489,11 @@ public class MortgageFragment extends Fragment {
 
 		useMaxCashPayment = useMaxCashPaymentCheckBox.isChecked();
 		if (useMaxCashPayment) {
-			maxCashPayment = Integer.valueOf(cashPaymentUnitEditText.getText()
-					.toString().replaceAll("\\D+", ""));
+			String sMaxCashPayment = cashPaymentUnitEditText.getText().toString().replaceAll("\\D+", "");
+			if(!sMaxCashPayment.equals(""))
+				maxCashPayment = Integer.valueOf(sMaxCashPayment);
+			else
+				maxCashPayment = 0;
 		}
 
 		Log.d("Bolanekollen", "adults: " + adults);

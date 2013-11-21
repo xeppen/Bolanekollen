@@ -343,8 +343,8 @@ public class PrivateLoanFragment extends Fragment {
 		try {
 			double d = Double.parseDouble(str);
 		} catch (NumberFormatException nfe) {
-			Toast.makeText(this.getActivity(), "Ogiltigt tecken",
-					Toast.LENGTH_SHORT).show();
+			//Toast.makeText(this.getActivity(), "Ogiltigt tecken",
+			//		Toast.LENGTH_SHORT).show();
 			return false;
 		}
 		return true;

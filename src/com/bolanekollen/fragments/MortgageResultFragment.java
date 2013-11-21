@@ -208,6 +208,9 @@ public class MortgageResultFragment extends Fragment {
 		else if (cars > 1)
 			resultCosts.add(new Result("Kostnad fšr " + cars + " bilar", "- "
 					+ prettifyString(cars * COST_CAR) + " kr", false));
+		// Cash over
+		resultCosts.add(new Result("Buffert", "- "	+ prettifyString(CASH_OVER) + " kr", false));
+		
 		
 		String resultText;
 		if(leftOverCash <= 0){

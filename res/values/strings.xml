@@ -44,6 +44,7 @@
     <string name="privateLoanTotalInterestCostEditTextView">0 kr</string>
     <string name="privateLoanInformationText">Många tar idag privatlån för att utöka sin kontantinsats, räkna på vad det skulle kosta dig!</string>
     <string name="privateLoanHeadline">Räkna ut kostnaden för privatlån</string>
+    <string name="incomeOtherEditText">Annan inkomst</string>
 
     <!-- houseLoan -->
     <string name="household"><u>Hushållet</u></string>
@@ -53,7 +54,7 @@
     <string name="income"><u>Inkomster</u></string>
     <string name="incomeSalary">Nettolön, kr/mån</string>
     <string name="incomeOther">Annan inkomst, kr/mån</string>
-    <string name="incomeSalaryHintEditText">0</string>
+    <string name="incomeSalaryHintEditText">Ange inkomst</string>
     <string name="otherLoans">Övriga lån</string>
     <string name="otherLoansCost">Kostnad, kr/mån</string>
     <string name="costNewLiving"><u>Kostnad nytt boende</u></string>
@@ -66,9 +67,10 @@
     <string name="cashPayment"><u>Kontantinsats</u></string>
     <string name="costs"><u>Andra privat- och studentlån</u></string>
     <string name="otherCostsTextView">Kostnad, kr/mån</string>
-    <string name="otherCostsEditText">0</string>
+    <string name="otherCostsEditText">Ange kostnad</string>
     <string name="mortgageInformationView">Fyll i kalkylen nedan för att beräkna ungefär hur mycket du/ni bör kunna köpa ny bostad för.</string>
     <string name="newHouseholdRowTextView">Typ av bostad:</string>
+    <string name="cashPaymentUnitEditText">Ange insats</string>
 
     <!-- Bank interest -->
     <string name="infoBankInteretTextView">Nedan är dagsaktuella bolåneräntor ifrån de största bankerna i Sverige.</string>
